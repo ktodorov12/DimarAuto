@@ -1,15 +1,43 @@
+/*=========== TABLE OF CONTENTS ===========
+1. General css
+2. Nav Bar
+3. Hero section
+==========================================*/
+
+:root {
+    --dark-color: #333;
+    --white: #f0efef;
+    --adjacent-color: rgba(31, 31, 255, 0.753);
+
+    --heading: 3rem;
+    --subheading: 1.8rem;
+    --small-heading: 1.3rem;
+    --text: 1.1rem;
+
+    --box-shadow: -1px 5px 10px -6px #333;
+}
+
+/*-------------------------------------
+		1.General css
+--------------------------------------*/
 * {
     padding: 0;
     margin: 0;
+    box-sizing: border-box;
+    font-family: "Inter", sans-serif;
+}
+
+html {
+    scroll-behavior: smooth;
 }
 
 body {
     min-height: 100vh;
-    font-family: "Inter";
+    font-family: "Inter", sans-serif;
     font-size: var(--text);
 }
 
-ul {
+ul, ol {
     list-style-type: none;
 }
 
@@ -39,19 +67,22 @@ a:hover::after {
     width: 100%;
 }
 
-:root {
-    --dark-color: #333;
-    --white: #f0efef;
-    --adjacent-color: rgba(31, 31, 255, 0.753);
-
-    --text: 1rem;
+/* Utilitty classes */
+.container {
+    margin: 0 auto;
+    max-width: 1536px;
+    width: 100%;
+    height: 100%;
 }
 
-/* Nav */
+/*-------------------------------------
+	2.Nav Bar
+--------------------------------------*/
 #nav {
     width: 100vw;
-    box-shadow: 5px 1px 15px 0.2px rgba(51, 51, 51, 0.6);
+    box-shadow: var(--box-shadow);
     font-weight: 900;
+    z-index: 10000;
 }
 
 .nav-pc {
@@ -75,6 +106,53 @@ a:hover::after {
 }
 
 .logo {
-    width: 100px;
-    height: 100px;
+    width: 70px;
+    height: 70px;
+}
+
+/*-------------------------------------
+	3.Hero section
+--------------------------------------*/
+.hero-section-container {
+    position: relative;
+    height: 80vh;
+    width: 100vw;
+    box-shadow: var(--box-shadow);
+    overflow: hidden;
+}
+
+.hero-section-container::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url("../images/205402970-car-service-station-auto-repair-car-service-station-auto-repair-shop-auto-mechanic.jpg");
+    background-size: cover;
+    background-position: center;
+    opacity: 0.5;
+    z-index: 1;
+}
+
+.hero-section-content {
+    position: relative;
+    z-index: 2;
+    color: var(--white);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    height: 100%;
+    width: 100%;
+}
+
+.hero-section-content h1 {
+    font-size: var(--heading);
+    opacity: 1;
+}
+
+.hero-section-content p {
+    opacity: 0.7;
 }
