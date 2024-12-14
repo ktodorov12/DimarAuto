@@ -7,7 +7,9 @@
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
     <link href="https://fonts.googleapis.com/css?family=Inter" rel="stylesheet" />
+
     <link rel="stylesheet" href="assets/css/style.css" />
+    <link rel="stylesheet" href="assets/css/responsive.css" />
   </head>
   <body>
     <!-- Navigation -->
@@ -60,9 +62,17 @@
             сложен ремонт, можете да разчитате на нас за бързо и ефективно решение. Доверете ни се и оставете вашия автомобил в сигурни ръце.
           </p>
         </div>
-        <div class="images-container">
-          <img class="img-main" src="assets/images/3.webp" alt="dvigatel" />
-          <img class="img-main" src="assets/images/avtoservizi-postavat-mnogokratno-upotrebavani-chasti-1.jpg" alt="majstor, rabotesht po dvigatel" />
+        <div class="gallery-grid-about">
+          <img
+            loading="lazy"
+            src="https://cdn.builder.io/api/v1/image/assets/TEMP/e709642cc313c6b4cbc2bd5551f85d8e9cc643b7c9a2bed7ca19f1a845114e2d?placeholderIfAbsent=true&apiKey=97d63ebc9c384183bf2a26f6d1aeb723"
+            class="gallery-item"
+            alt="Gallery item 1" />
+          <img
+            loading="lazy"
+            src="https://cdn.builder.io/api/v1/image/assets/TEMP/490f5bdef45741b5b0fa8a1527dcfa9e8dddce8503d1fde419d6b85253f9eefe?placeholderIfAbsent=true&apiKey=97d63ebc9c384183bf2a26f6d1aeb723"
+            class="gallery-item"
+            alt="Gallery item 2" />
         </div>
       </div>
     </div>
@@ -73,78 +83,155 @@
     </div>
 
     <!-- Services section -->
-    <div class="container padding-container">
-      <div class="flex-container">
-        <h1 class="main-heading-underline">Нашите Услуги</h1>
-        <div class="services-cards">
-          <div class="card">
-            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="icon">
-              <path
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                d="M9.75 19.5h4.5M21 16.5H3a1.5 1.5 0 01-1.5-1.5v-9A1.5 1.5 0 013 4.5h18a1.5 1.5 0 011.5 1.5v9a1.5 1.5 0 01-1.5 1.5z" />
-            </svg>
-            <div class="card-content">
-              <h3 class="small-heading">Компютърна диагностика</h3>
-              <p class="main-text">Извършваме пълна диагностика на вашия автомобил с помощта на съвременна апаратура, за да открием и решим проблемите бързо и ефективно.</p>
+    <div class="services">
+      <div class="container padding-container">
+        <div class="flex-container">
+          <h1 class="main-heading-underline">Нашите Услуги</h1>
+
+          <div class="services-grid">
+            <div class="services-row">
+              <div class="service-column">
+                <div class="service-card">
+                  <div class="card-icon-wrapper">
+                    <div class="card-icon">
+                      <img
+                        src="https://cdn.builder.io/api/v1/image/assets/TEMP/fb25ea2b9ab34b1da4e611e03c3d44eda5fb158dde3aa3eb58251efbad73c986?placeholderIfAbsent=true&apiKey=97d63ebc9c384183bf2a26f6d1aeb723"
+                        alt="Компютърна диагностика икона" />
+                    </div>
+                  </div>
+                  <div class="card-content">
+                    <h2 class="small-heading">Компютърна диагностика</h2>
+                    <p class="main-text">Извършваме пълна диагностика на вашия автомобил с помощта на съвременна апаратура, за да открием и решим проблемите бързо и ефективно.</p>
+                  </div>
+                </div>
+              </div>
+
+              <div class="service-column">
+                <div class="service-card">
+                  <div class="card-icon-wrapper">
+                    <div class="card-icon">
+                      <img
+                        src="https://cdn.builder.io/api/v1/image/assets/TEMP/fb25ea2b9ab34b1da4e611e03c3d44eda5fb158dde3aa3eb58251efbad73c986?placeholderIfAbsent=true&apiKey=97d63ebc9c384183bf2a26f6d1aeb723"
+                        alt="Смяна на масла и филтри икона" />
+                    </div>
+                  </div>
+                  <div class="card-content">
+                    <h2 class="small-heading">Смяна на масла и филтри</h2>
+                    <p class="main-text">Гарантираме дълготрайната работа на двигателя чрез качествена смяна на масла и филтри.</p>
+                  </div>
+                </div>
+              </div>
+
+              <div class="service-column">
+                <div class="service-card">
+                  <div class="card-icon-wrapper">
+                    <div class="card-icon">
+                      <img
+                        src="https://cdn.builder.io/api/v1/image/assets/TEMP/fb25ea2b9ab34b1da4e611e03c3d44eda5fb158dde3aa3eb58251efbad73c986?placeholderIfAbsent=true&apiKey=97d63ebc9c384183bf2a26f6d1aeb723"
+                        alt="Ремонт на ходова част икона" />
+                    </div>
+                  </div>
+                  <div class="card-content">
+                    <h2 class="small-heading">Ремонт на ходова част</h2>
+                    <p class="main-text">Обезпечаваме сигурността на пътя с професионален ремонт и подмяна на амортисьори, спирачки и други ключови елементи.</p>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
 
-          <div class="card">
-            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="icon">
-              <path
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                d="M16.5 3.75h1.875a2.625 2.625 0 012.625 2.625v3.75a2.625 2.625 0 01-2.625 2.625h-.375m-15-2.25a5.625 5.625 0 1111.25 0v8.25h-11.25v-8.25zm9 6.75h4.5m-2.25-3v3" />
-            </svg>
-            <h3 class="small-heading">Смяна на масла и филтри</h3>
-            <p class="main-text">Гарантираме дълготрайната работа на двигателя чрез качествена смяна на масла и филтри.</p>
-          </div>
+          <div class="services-grid">
+            <div class="services-row">
+              <div class="service-column">
+                <div class="service-card">
+                  <div class="card-icon-wrapper">
+                    <div class="card-icon">
+                      <img
+                        src="https://cdn.builder.io/api/v1/image/assets/TEMP/fb25ea2b9ab34b1da4e611e03c3d44eda5fb158dde3aa3eb58251efbad73c986?placeholderIfAbsent=true&apiKey=97d63ebc9c384183bf2a26f6d1aeb723"
+                        alt="Смяна на гуми и баланс икона" />
+                    </div>
+                  </div>
+                  <div class="card-content">
+                    <h2 class="small-heading">Смяна на гуми и баланс</h2>
+                    <p class="main-text">Предлагаме смяна, баланс и проверка на гумите, за да осигурим оптимална стабилност и икономия на гориво.</p>
+                  </div>
+                </div>
+              </div>
 
-          <div class="card">
-            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="icon">
-              <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 15a7.5 7.5 0 1115 0m-12 0h6" />
-            </svg>
-            <h3 class="small-heading">Ремонт на ходова част</h3>
-            <p class="main-text">Обезпечаваме сигурността на пътя с професионален ремонт и подмяна на амортисьори, спирачки и други ключови елементи.</p>
-          </div>
+              <div class="service-column">
+                <div class="service-card">
+                  <div class="card-icon-wrapper">
+                    <div class="card-icon">
+                      <img
+                        src="https://cdn.builder.io/api/v1/image/assets/TEMP/fb25ea2b9ab34b1da4e611e03c3d44eda5fb158dde3aa3eb58251efbad73c986?placeholderIfAbsent=true&apiKey=97d63ebc9c384183bf2a26f6d1aeb723"
+                        alt="Ел. системи и акумулатори икона" />
+                    </div>
+                  </div>
+                  <div class="card-content">
+                    <h2 class="small-heading">Ел. системи и акумулатори</h2>
+                    <p class="main-text">Диагностицираме и ремонтираме електрическите системи на вашия автомобил, включително смяна на акумулатори.</p>
+                  </div>
+                </div>
+              </div>
 
-          <div class="card">
-            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="icon">
-              <path stroke-linecap="round" stroke-linejoin="round" d="M12 6v6.75M12 17.25v.75m-6-3.75h12M4.5 10.5a7.5 7.5 0 1115 0 7.5 7.5 0 01-15 0z" />
-            </svg>
-            <h3 class="small-heading">Смяна на гуми и баланс</h3>
-            <p class="main-text">Предлагаме смяна, баланс и проверка на гумите, за да осигурим оптимална стабилност и икономия на гориво.</p>
-          </div>
-
-          <div class="card">
-            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="icon">
-              <path
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                d="M12 4.5a7.5 7.5 0 00-7.5 7.5m15 0a7.5 7.5 0 00-15 0m15 0a7.5 7.5 0 01-15 0m7.5 3v4.5M12 18.75a1.5 1.5 0 100-3 1.5 1.5 0 000 3zm0 0v-3m6.75 3.75H5.25" />
-            </svg>
-            <h3 class="small-heading">Ел. системи и акумулатори</h3>
-            <p class="main-text">Диагностицираме и ремонтираме електрическите системи на вашия автомобил, включително смяна на акумулатори.</p>
-          </div>
-
-          <div class="card">
-            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="icon">
-              <path
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                d="M12 6V4.5m0 15V18m-9-9H3M21 12h1.5m-4.5-4.5h2.25m-2.25 9h2.25M4.5 7.5H6m0 9H4.5m15-9h1.5M7.5 18h9M12 4.5a1.5 1.5 0 10-3 0 1.5 1.5 0 003 0zm6 15a1.5 1.5 0 10-3 0 1.5 1.5 0 003 0zM12 12a3 3 0 110-6 3 3 0 010 6z" />
-            </svg>
-            <h3 class="small-heading">Климатични системи</h3>
-            <p class="main-text">Поддържаме и ремонтираме климатичните системи, за да се наслаждавате на комфорт във всяко пътуване.</p>
+              <div class="service-column">
+                <div class="service-card">
+                  <div class="card-icon-wrapper">
+                    <div class="card-icon">
+                      <img
+                        src="https://cdn.builder.io/api/v1/image/assets/TEMP/fb25ea2b9ab34b1da4e611e03c3d44eda5fb158dde3aa3eb58251efbad73c986?placeholderIfAbsent=true&apiKey=97d63ebc9c384183bf2a26f6d1aeb723"
+                        alt="Климатични системи икона" />
+                    </div>
+                  </div>
+                  <div class="card-content">
+                    <h2 class="small-heading">Климатични системи</h2>
+                    <p class="main-text">Поддържаме и ремонтираме климатичните системи, за да се наслаждавате на комфорт във всяко пътуване.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
     </div>
 
     <!-- Gallery section -->
-    <div class="container">
-      <div class="gallery-container"></div>
+    <div class="container padding-container">
+      <div class="flex-container">
+        <h1 class="main-heading-underline">Галерия</h1>
+        <img
+          loading="lazy"
+          src="https://cdn.builder.io/api/v1/image/assets/TEMP/16a49a084f799855f142bcc9a317478bdf2b8128172726eb33509059e42ff274?placeholderIfAbsent=true&apiKey=97d63ebc9c384183bf2a26f6d1aeb723"
+          class="gallery-hero-image"
+          alt="Gallery hero image" />
+        <div class="gallery-grid">
+          <img
+            loading="lazy"
+            src="https://cdn.builder.io/api/v1/image/assets/TEMP/e709642cc313c6b4cbc2bd5551f85d8e9cc643b7c9a2bed7ca19f1a845114e2d?placeholderIfAbsent=true&apiKey=97d63ebc9c384183bf2a26f6d1aeb723"
+            class="gallery-item"
+            alt="Gallery item 1" />
+          <img
+            loading="lazy"
+            src="https://cdn.builder.io/api/v1/image/assets/TEMP/490f5bdef45741b5b0fa8a1527dcfa9e8dddce8503d1fde419d6b85253f9eefe?placeholderIfAbsent=true&apiKey=97d63ebc9c384183bf2a26f6d1aeb723"
+            class="gallery-item"
+            alt="Gallery item 2" />
+          <img
+            loading="lazy"
+            src="https://cdn.builder.io/api/v1/image/assets/TEMP/6158f7184d8043577cfe249e418e665dd382f606ec9bcfa6a2942c4cdebf5c0b?placeholderIfAbsent=true&apiKey=97d63ebc9c384183bf2a26f6d1aeb723"
+            class="gallery-item"
+            alt="Gallery item 3" />
+          <img
+            loading="lazy"
+            src="https://cdn.builder.io/api/v1/image/assets/TEMP/b215e4ac78b5cf903109bdf3d8a0fbc1f9f6de3027afc5bf8ddb5c6dd1f3a52c?placeholderIfAbsent=true&apiKey=97d63ebc9c384183bf2a26f6d1aeb723"
+            class="gallery-item"
+            alt="Gallery item 4" />
+          <img
+            loading="lazy"
+            src="https://cdn.builder.io/api/v1/image/assets/TEMP/7964bf758754b5c1d49ea529e9d3e5a52a7f758f43a5d53e39a8cca7c938da8b?placeholderIfAbsent=true&apiKey=97d63ebc9c384183bf2a26f6d1aeb723"
+            class="gallery-item"
+            alt="Gallery item 5" />
+        </div>
+      </div>
     </div>
 
     <!-- Maps -->
@@ -156,42 +243,51 @@
     </div>
 
     <!-- Footer -->
-    <footer class="footer">
-      <div class="container padding-container">
-        <div class="flex-container-row">
-          <div class="contact-info">
-            <h3 class="small-heading">КОНТАКТИ</h3>
-            <div class="contact-item">
-              <span class="icon">📍</span>
-              <p>5B Streat, City 50987 New Town US</p>
-            </div>
-            <div class="contact-item">
-              <span class="icon">📞</span>
-              <p>1(800) 220 084</p>
-            </div>
-            <div class="contact-item">
-              <span class="icon">✉️</span>
-              <p>
-                <a href="mailto:info@example.com">info@example.com</a>
-              </p>
-            </div>
-            <div class="contact-item">
-              <span class="icon">🌐</span>
-              <p>
-                <a href="#!">www.htmlstream.com</a>
-              </p>
-            </div>
+    <div class="contact-section">
+      <div class="container flex-container-row">
+        <div class="contact-info-container">
+          <h2 class="section-title">Contact Info</h2>
+          <div class="contact-item">
+            <span class="icon"></span>
+            <span class="contact-text">address</span>
           </div>
+          <div class="contact-item">
+            <span class="icon"></span>
+            <span class="contact-text">telephone</span>
+          </div>
+          <div class="contact-item">
+            <span class="icon"></span>
+            <span class="contact-text">email</span>
+          </div>
+        </div>
 
+        <div class="contact-form-wrapper">
           <div class="form-container">
-            <div class="form-wrapper">
-              <h3 class="small-heading">КОНТАКТИ</h3>
-              <form></form>
+            <div class="form-title-column">
+              <h1 class="section-title">Contact Us</h1>
             </div>
-            <button class="btn"></button>
+            <div class="form-content-column">
+              <form class="contact-form">
+                <div class="form-fields">
+                  <div class="form-group">
+                    <label for="name" class="form-label">Name</label>
+                    <input type="text" id="name" class="form-input" required aria-required="true" />
+                  </div>
+                  <div class="form-group">
+                    <label for="email" class="form-label">Email</label>
+                    <input type="email" id="email" class="form-input" required aria-required="true" />
+                  </div>
+                  <div class="form-group message">
+                    <label for="message" class="form-label">Message</label>
+                    <textarea id="message" class="form-input message" required aria-required="true"></textarea>
+                  </div>
+                </div>
+                <button type="submit" class="submit-button">Send Message</button>
+              </form>
+            </div>
           </div>
         </div>
       </div>
-    </footer>
+    </div>
   </body>
 </html>

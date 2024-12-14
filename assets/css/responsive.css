@@ -1,0 +1,97 @@
+@media (max-width: 991px) {
+    /* Services */
+  .services-grid {
+    margin-top: 40px;
+  }
+
+  .services-row {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0;
+  }
+
+  .service-column {
+    width: 100%;
+  }
+
+  .service-card {
+    margin-top: 40px;
+  }
+}
+
+/* Fallery */
+@media (max-width: 991px) {
+  .gallery-section {
+    max-width: 100%;
+    padding: 0 20px 100px;
+  }
+
+  .gallery-container {
+    margin-bottom: 10px;
+  }
+
+  .gallery-title {
+    font-size: 40px;
+  }
+
+  .gallery-hero-image {
+    max-width: 100%;
+    margin-top: 40px;
+  }
+}
+
+/* Form */
+@media (max-width: 991px) {
+  .contact-section {
+    max-width: 100%;
+    padding: 0 20px;
+  }
+
+  .contact-item {
+    white-space: initial;
+  }
+
+  .social-title {
+    margin-top: 40px;
+  }
+
+  .contact-form-wrapper {
+    max-width: 100%;
+    padding: 0 20px;
+  }
+
+  .form-container {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0;
+  }
+
+  .form-title-column,
+  .form-content-column {
+    width: 100%;
+    margin-left: 0;
+  }
+
+  .section-title {
+    margin-top: 40px;
+  }
+
+  .contact-form {
+    max-width: 100%;
+    margin-top: 40px;
+  }
+
+  .form-fields {
+    max-width: 100%;
+    padding-left: 20px;
+  }
+
+  .form-group.message {
+    margin-top: 40px;
+  }
+
+  .submit-button {
+    margin-top: 40px;
+    padding: 0 20px;
+  }
+}
