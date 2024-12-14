@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Web</title>
 
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
     <link href="https://fonts.googleapis.com/css?family=Inter" rel="stylesheet" />
     <link rel="stylesheet" href="assets/css/style.css" />
   </head>
@@ -46,7 +47,7 @@
 
     <!-- About section -->
     <div class="container padding-container">
-      <div class="about-us-container">
+      <div class="flex-container">
         <h1 class="main-heading-underline">За нас</h1>
         <div class="text-container">
           <p class="main-text">
@@ -72,8 +73,73 @@
     </div>
 
     <!-- Services section -->
-    <div class="container">
-      <div class="services-container"></div>
+    <div class="container padding-container">
+      <div class="flex-container">
+        <h1 class="main-heading-underline">Нашите Услуги</h1>
+        <div class="services-cards">
+          <div class="card">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="icon">
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                d="M9.75 19.5h4.5M21 16.5H3a1.5 1.5 0 01-1.5-1.5v-9A1.5 1.5 0 013 4.5h18a1.5 1.5 0 011.5 1.5v9a1.5 1.5 0 01-1.5 1.5z" />
+            </svg>
+            <div class="card-content">
+              <h3 class="small-heading">Компютърна диагностика</h3>
+              <p class="main-text">Извършваме пълна диагностика на вашия автомобил с помощта на съвременна апаратура, за да открием и решим проблемите бързо и ефективно.</p>
+            </div>
+          </div>
+
+          <div class="card">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="icon">
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                d="M16.5 3.75h1.875a2.625 2.625 0 012.625 2.625v3.75a2.625 2.625 0 01-2.625 2.625h-.375m-15-2.25a5.625 5.625 0 1111.25 0v8.25h-11.25v-8.25zm9 6.75h4.5m-2.25-3v3" />
+            </svg>
+            <h3 class="small-heading">Смяна на масла и филтри</h3>
+            <p class="main-text">Гарантираме дълготрайната работа на двигателя чрез качествена смяна на масла и филтри.</p>
+          </div>
+
+          <div class="card">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="icon">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 15a7.5 7.5 0 1115 0m-12 0h6" />
+            </svg>
+            <h3 class="small-heading">Ремонт на ходова част</h3>
+            <p class="main-text">Обезпечаваме сигурността на пътя с професионален ремонт и подмяна на амортисьори, спирачки и други ключови елементи.</p>
+          </div>
+
+          <div class="card">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="icon">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M12 6v6.75M12 17.25v.75m-6-3.75h12M4.5 10.5a7.5 7.5 0 1115 0 7.5 7.5 0 01-15 0z" />
+            </svg>
+            <h3 class="small-heading">Смяна на гуми и баланс</h3>
+            <p class="main-text">Предлагаме смяна, баланс и проверка на гумите, за да осигурим оптимална стабилност и икономия на гориво.</p>
+          </div>
+
+          <div class="card">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="icon">
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                d="M12 4.5a7.5 7.5 0 00-7.5 7.5m15 0a7.5 7.5 0 00-15 0m15 0a7.5 7.5 0 01-15 0m7.5 3v4.5M12 18.75a1.5 1.5 0 100-3 1.5 1.5 0 000 3zm0 0v-3m6.75 3.75H5.25" />
+            </svg>
+            <h3 class="small-heading">Ел. системи и акумулатори</h3>
+            <p class="main-text">Диагностицираме и ремонтираме електрическите системи на вашия автомобил, включително смяна на акумулатори.</p>
+          </div>
+
+          <div class="card">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="icon">
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                d="M12 6V4.5m0 15V18m-9-9H3M21 12h1.5m-4.5-4.5h2.25m-2.25 9h2.25M4.5 7.5H6m0 9H4.5m15-9h1.5M7.5 18h9M12 4.5a1.5 1.5 0 10-3 0 1.5 1.5 0 003 0zm6 15a1.5 1.5 0 10-3 0 1.5 1.5 0 003 0zM12 12a3 3 0 110-6 3 3 0 010 6z" />
+            </svg>
+            <h3 class="small-heading">Климатични системи</h3>
+            <p class="main-text">Поддържаме и ремонтираме климатичните системи, за да се наслаждавате на комфорт във всяко пътуване.</p>
+          </div>
+        </div>
+      </div>
     </div>
 
     <!-- Gallery section -->
@@ -82,11 +148,50 @@
     </div>
 
     <!-- Maps -->
-    <div class="google-maps"></div>
+    <div class="map-container">
+      <iframe
+        class="map-frame"
+        src="https://maps.google.com/maps?width=100%25&amp;height=600&amp;hl=en&amp;q=%D0%9A%D1%80%D0%B5%D0%BC%D0%B8%D0%BA%D0%BE%D0%B2%D1%86%D0%B8,%20%D1%83%D0%BB.%20%D0%95%D0%B2%D1%82%D0%B8%D0%BC%20%D0%95%D0%B2%D1%82%D0%B8%D0%BC%D0%BE%D0%B2%201,%201849%20%D0%A1%D0%BE%D1%84%D0%B8%D1%8F+(My%20Business%20Name)&amp;t=p&amp;z=14&amp;ie=UTF8&amp;iwloc=B&amp;output=embed">
+      </iframe>
+    </div>
 
     <!-- Footer -->
-    <div class="container">
-      <footer></footer>
-    </div>
+    <footer class="footer">
+      <div class="container padding-container">
+        <div class="flex-container-row">
+          <div class="contact-info">
+            <h3 class="small-heading">КОНТАКТИ</h3>
+            <div class="contact-item">
+              <span class="icon">📍</span>
+              <p>5B Streat, City 50987 New Town US</p>
+            </div>
+            <div class="contact-item">
+              <span class="icon">📞</span>
+              <p>1(800) 220 084</p>
+            </div>
+            <div class="contact-item">
+              <span class="icon">✉️</span>
+              <p>
+                <a href="mailto:info@example.com">info@example.com</a>
+              </p>
+            </div>
+            <div class="contact-item">
+              <span class="icon">🌐</span>
+              <p>
+                <a href="#!">www.htmlstream.com</a>
+              </p>
+            </div>
+          </div>
+
+          <div class="form-container">
+            <div class="form-wrapper">
+              <h3 class="small-heading">КОНТАКТИ</h3>
+              <form></form>
+            </div>
+            <button class="btn"></button>
+          </div>
+        </div>
+      </div>
+    </footer>
   </body>
 </html>
