@@ -46,53 +46,49 @@
     max-width: 100%;
     padding: 0 20px;
   }
-
-  .contact-item {
-    white-space: initial;
-  }
-
-  .social-title {
-    margin-top: 40px;
-  }
-
-  .contact-form-wrapper {
+  .contact-wrapper {
     max-width: 100%;
-    padding: 0 20px;
   }
-
-  .form-container {
+  .contact-content {
     flex-direction: column;
     align-items: stretch;
     gap: 0;
   }
-
-  .form-title-column,
-  .form-content-column {
+  .info-column {
+    width: 100%;
+  }
+  .info-content {
+    max-width: 100%;
+    margin-top: 40px;
+  }
+  .contact-description {
+    max-width: 100%;
+  }
+  .form-column {
     width: 100%;
     margin-left: 0;
   }
-
-  .section-title {
-    margin-top: 40px;
-  }
-
-  .contact-form {
+  .form-wrapper {
     max-width: 100%;
     margin-top: 40px;
   }
-
-  .form-fields {
-    max-width: 100%;
-    padding-left: 20px;
+  .form-content {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0;
   }
-
-  .form-group.message {
-    margin-top: 40px;
+  .input-column {
+    width: 100%;
   }
-
-  .submit-button {
-    margin-top: 40px;
-    padding: 0 20px;
+  .input-wrapper {
+    margin-top: 28px;
+  }
+  .message-column {
+    width: 100%;
+    margin-left: 0;
+  }
+  .message-wrapper {
+    margin-top: 28px;
   }
 }
 

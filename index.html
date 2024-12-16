@@ -294,45 +294,33 @@
 
     <!-- Footer -->
     <div class="contact-section">
-      <div class="container flex-container-row padding-container">
-        <div class="contact-info-container">
-          <h2 class="section-title">Contact Info</h2>
-          <div class="contact-item">
-            <span class="icon"></span>
-            <span class="contact-text">address</span>
-          </div>
-          <div class="contact-item">
-            <span class="icon"></span>
-            <span class="contact-text">telephone</span>
-          </div>
-          <div class="contact-item">
-            <span class="icon"></span>
-            <span class="contact-text">email</span>
-          </div>
-        </div>
-
-        <div class="contact-form-wrapper">
-          <div class="form-container">
-            <div class="form-title-column">
-              <h1 class="section-title">Contact Us</h1>
+      <div class="contact-wrapper">
+        <div class="contact-content">
+          <div class="info-column">
+            <div class="info-content">
+              <div class="contact-label">CONTACT US</div>
+              <h2 class="subheading-white">ANSWERS TO <span class="bold-text">YOUR QUESTIONS</span></h2>
+              <p class="contact-description">someasdasdasdasdasdasdasdsdsadasdsadasdasddsadasd asdasdsadsaddasdasdasdasdasdsadasdsadasdas.</p>
             </div>
-            <div class="form-content-column">
-              <form class="contact-form">
-                <div class="form-fields">
-                  <div class="form-group">
-                    <input type="text" id="name" class="form-input" placeholder=" " required aria-required="true" />
-                    <label for="name" class="form-label">Name</label>
-                  </div>
-                  <div class="form-group">
-                    <input type="email" id="email" class="form-input" placeholder=" " required aria-required="true" />
-                    <label for="email" class="form-label">Email</label>
-                  </div>
-                  <div class="form-group message">
-                    <textarea id="message" class="form-input message" placeholder=" " required aria-required="true"></textarea>
-                    <label for="message" class="form-label">Message</label>
+          </div>
+          <div class="form-column">
+            <div class="form-wrapper">
+              <form class="form-content">
+                <div class="input-column">
+                  <div class="input-wrapper">
+                    <label for="name" class="visually-hidden">Name</label>
+                    <input type="text" id="name" class="form-input" placeholder="Name" required />
+                    <label for="email" class="visually-hidden">Email</label>
+                    <input type="email" id="email" class="form-input" placeholder="Email" required style="margin-top: 29px" />
                   </div>
                 </div>
-                <button type="submit" class="submit-button">Send Message</button>
+                <div class="message-column">
+                  <div class="message-wrapper">
+                    <label for="message" class="visually-hidden">Message</label>
+                    <textarea id="message" class="form-textarea" placeholder="Message" required></textarea>
+                    <button type="submit" class="submit-button">SUBMIT</button>
+                  </div>
+                </div>
               </form>
             </div>
           </div>
