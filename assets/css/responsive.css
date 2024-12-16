@@ -95,3 +95,31 @@
     padding: 0 20px;
   }
 }
+
+/* Carousel */
+@media (max-width: 991px) {
+  .features-carousel {
+    padding: 100px 20px;
+  }
+
+  .features-wrapper {
+    max-width: 100%;
+  }
+
+  .hero-content {
+    max-width: 100%;
+  }
+
+  .hero-text-wrapper {
+    max-width: 100%;
+  }
+
+  .hero-heading {
+    max-width: 100%;
+    font-size: 40px;
+  }
+
+  .hero-description {
+    max-width: 100%;
+  }
+}

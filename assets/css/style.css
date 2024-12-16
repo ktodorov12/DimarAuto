@@ -283,14 +283,123 @@ textarea {
 --------------------------------------*/
 .gallery-grid-about {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 20px;
-  width:  75%;
+  grid-template-columns: 2fr 1fr;
+  grid-template-rows: auto auto;
+  gap: 15px;
+  width: 30%;
+}
+
+.about-1{
+  grid-column: 1 / 2;
+  grid-row: 1 / 3;
+}
+
+.about-2 {
+  grid-column: 2 / 3;
+  grid-row: 1 / 2;
+}
+
+.about-3 {
+  grid-column: 2 / 3;
+  grid-row: 2 / 3;
 }
 
 /*-------------------------------------
 	5. Carousel
 --------------------------------------*/
+.features-carousel {
+  background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),
+  url('/assets/images/car-service-key-features-a-1920x1080tcm-3154-1323224_Small-Landscape.webp') center/cover fixed;
+  background-size: cover;
+  box-shadow: 0 4px 4px 1px rgba(0, 0, 0, 0.5);
+}
+
+.features-cards {
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+}
+
+.feature-card {
+  border-radius: 5px;
+  display: flex;
+  width: 320px;
+  padding: var(--4, 16px);
+  flex-direction: column;
+  gap: var(--2, 8px);
+  transition: all 0.3s;
+}
+
+.feature-card.active {
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px -1px rgba(0, 0, 0, 0.1);
+  background-color: rgba(255, 255, 255, 0.2);
+}
+
+.feature-indicator {
+  background-color: rgba(255, 255, 255, 0.425);;
+  min-height: 4px;
+  width: 100%;
+}
+
+.feature-indicator.active {
+  background: var(--adjacent-color);
+}
+
+.feature-card:hover {
+  cursor: pointer;
+  background-color: rgba(255, 255, 255, 0.1);
+  box-shadow: 0 1px 3px 0 rgba(15, 15, 15, 0.1), 0 1px 2px -1px rgba(15, 15, 15, 0.1);
+}
+
+.feature-content {
+  display: flex;
+  margin-top: 8px;
+  width: 100%;
+  flex-direction: column;
+}
+
+.feature-title {
+  color: var(--white, #fff);
+  font-size: 18px;
+  font-weight: 600;
+  line-height: 1;
+}
+
+.feature-description {
+  color: var(--gray-200, #e5e7eb);
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 24px;
+  margin-top: 8px;
+}
+
+.hero-text-wrapper {
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.cta-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: var(--rounded-lg, 8px);
+  background: var(--primary-600, #1c64f2);
+  margin-top: 40px;
+  width: 171px;
+  padding: var(--25, 10px) var(--5, 20px);
+  gap: var(--2, 8px);
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.button-icon {
+  aspect-ratio: 1;
+  object-fit: contain;
+  width: 20px;
+  margin: auto 0;
+}
 /*-------------------------------------
 	6. Services section
 --------------------------------------*/
@@ -392,7 +501,7 @@ textarea {
 .gallery-item {
   aspect-ratio: 1.15;
   width: 100%;
-  height: auto;
+  height: 100%;
   background-size: cover;
   background-position: center;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
@@ -417,7 +526,6 @@ textarea {
 .contact-section {
   background: #000;
   width: 100%;
-  padding: 80px;
 }
 
 .contact-info-container {
@@ -514,6 +622,7 @@ textarea {
 }
 
 .form-group {
+  position: relative;
   margin-top: 39px;
   width: 100%;
 }
@@ -527,16 +636,49 @@ textarea {
 }
 
 .form-label {
-  display: block;
-  margin-bottom: 8px;
+  position: absolute;
+  top: 50%;
+  left: 0;
+  transform: translateY(-50%);
+  font-size: 16px;
+  color: #fff;
+  transition: all 0.3s ease;
+  pointer-events: none; /* Prevents clicking the label */
 }
 
 .form-input {
   width: 100%;
+  border: none;
   border-bottom: 1px solid #fff;
   background: transparent;
   color: #fff;
   padding: 8px 0;
+  font-size: 16px;
+  transition: border-color 0.3s ease;
+}
+
+.form-input:focus {
+  outline: none;
+  border-bottom: 2px solid #d9d9d9;
+}
+
+.form-input:focus + .form-label,
+.form-input:not(:placeholder-shown) + .form-label {
+  top: -10px;
+  font-size: 14px;
+  color: #d9d9d9;
+}
+
+textarea.form-input + .form-label {
+  top: 0;
+  transform: translateY(0);
+}
+
+textarea.form-input:focus + .form-label,
+textarea.form-input:not(:placeholder-shown) + .form-label {
+  top: -20px;
+  font-size: 14px;
+  color: #d9d9d9;
 }
 
 .form-input.message {
