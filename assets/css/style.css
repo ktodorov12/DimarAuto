@@ -45,6 +45,42 @@ body {
   max-width: 100vw;
 }
 
+@keyframes fade-in {
+  0% {
+    opacity: 0;
+    scale: 0.8;
+    transform: translateY(-50px);
+  }
+  100% {
+    opacity: 1;
+    scale: 1;
+    transform: translateY(0);
+  }
+}
+
+.hero-section-container,
+nav {
+  animation: fade-in 1s ease-out forwards;
+}
+
+@keyframes scroll-fade {
+  0% {
+    transform: translateY(-20px);
+    opacity: 0;
+  }
+
+  100% {
+    transform: translateY(0px);
+    opacity: 1;
+  }
+}
+
+.scroll-item {
+  animation: scroll-fade 1.5s ease-in forwards;
+  animation-timeline: view();
+  animation-range: entry;
+}
+
 ul,
 ol {
   list-style-type: none;
