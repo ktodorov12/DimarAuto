@@ -371,10 +371,10 @@ textarea {
   left: 0;
   width: var(--percent-100);
   height: var(--percent-100);
-  background-image: url("../images/205402970-car-service-station-auto-repair-car-service-station-auto-repair-shop-auto-mechanic.jpg");
+  background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)),
+    url("/assets/images/205402970-car-service-station-auto-repair-car-service-station-auto-repair-shop-auto-mechanic.jpg") center/cover fixed;
   background-size: cover;
-  background-position: center;
-  opacity: 0.5;
+  box-shadow: var(--box-shadow);
   z-index: 1;
 }
 
