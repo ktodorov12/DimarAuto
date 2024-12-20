@@ -14,12 +14,14 @@
 :root {
   /* Colors */
   --dark-color: #333;
+  --dark-shade: #69707d;
+  --plain-white: #fff;
   --white: #f0efef;
   --adjacent-color: #0077cc;
+  --adjacent-hover: rgba(0, 119, 204, 0.4);
   --bg-color: #f7f8fc;
   --color-success: #00bfb3;
   --color-fail: #bd271e;
-  --dark-shade: #69707d;
   --color-card: linear-gradient(135deg, rgba(255, 255, 255, 1), rgba(240, 239, 239, 0.2), rgba(247, 248, 252, 0.5));
 
   --description-text: #e5e7eb;
@@ -31,8 +33,8 @@
 
   --box-shadow: 0 0.9px var(--1) -1px rgba(0, 0, 0, 0.08), 0 2.6px var(--2) -1px rgba(0, 0, 0, 0.06), 0 5.7px 12px -1px rgba(0, 0, 0, 0.05),
     0 var(--4) var(--4) -1px rgba(0, 0, 0, 0.04);
-  --box-shadow-hover: 0 0.9px var(--1) -1px rgba(0, 119, 204, 0.4), 0 2.6px var(--2) -1px rgba(0, 119, 204, 0.4), 0 5.7px 12px -1px rgba(0, 119, 204, 0.4),
-    0 var(--4) var(--4) -1px rgba(0, 119, 204, 0.4);
+  --box-shadow-hover: 0 0.9px var(--1) -1px var(--adjacent-hover), 0 2.6px var(--2) -1px var(--adjacent-hover), 0 5.7px 12px -1px var(--adjacent-hover),
+    0 var(--4) var(--4) -1px var(--adjacent-hover);
 
   /* Containers */
   --container-width-main: 1536px;
@@ -303,10 +305,6 @@ textarea {
   transition: all 0.7s;
 }
 
-/* Button */
-.btn {
-}
-
 /* Gallery photos */
 .gallery-item {
   aspect-ratio: 1.15;
@@ -322,7 +320,7 @@ textarea {
 --------------------------------------*/
 #nav {
   position: fixed;
-  background-color: #fff;
+  background-color: var(--plain-white);
   width: var(--percent-100);
   box-shadow: var(--box-shadow);
   font-weight: 900;
@@ -474,7 +472,7 @@ textarea {
 }
 
 .feature-title {
-  color: var(--white, #fff);
+  color: var(--plain-white);
   font-size: var(--small-heading);
   font-weight: 900;
   line-height: 1;
@@ -509,6 +507,14 @@ textarea {
   gap: var(--2);
   font-size: var(--text);
   font-weight: 500;
+  color: var(--plain-white);
+  transition: background 0.3s ease, box-shadow 0.3s ease, transform 0.2s ease;
+}
+
+.cta-button:hover {
+  cursor: pointer;
+  background: var(--adjacent-hover);
+  box-shadow: var(--box-shadow)
 }
 
 .button-icon {
@@ -755,12 +761,20 @@ textarea {
 
 .submit-button {
   border-radius: var(--2);
-  background-color: rgba(255, 255, 255, 1);
+  background-color: var(--plain-white);
   align-self: flex-end;
   margin-top: var(--5);
   font-size: var(--3);
-  color: rgba(0, 0, 0, 1);
+  color: var(--text-color);
   padding: var(--3) var(--5);
   border: none;
   cursor: pointer;
+}
+
+.submit-button:hover {
+  cursor: pointer;
+  background-color: var(--dark-shade);
+  color: var(--plain-white);
+  transition: 0.3s;
+  box-shadow: var(--box-shadow);
 }
