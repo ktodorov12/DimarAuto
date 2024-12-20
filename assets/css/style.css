@@ -9,6 +9,7 @@
 7. Gallery
 8. Maps
 9. Footer
+10. Notifivations
 ==========================================*/
 
 :root {
@@ -20,8 +21,8 @@
   --adjacent-color: #0077cc;
   --adjacent-hover: rgba(0, 119, 204, 0.4);
   --bg-color: #f7f8fc;
-  --color-success: #00bfb3;
-  --color-fail: #bd271e;
+  --color-success: #def7ec;
+  --color-fail:  #D8000C;
   --color-card: linear-gradient(135deg, rgba(255, 255, 255, 1), rgba(240, 239, 239, 0.2), rgba(247, 248, 252, 0.5));
 
   --description-text: #e5e7eb;
@@ -39,6 +40,7 @@
   /* Containers */
   --container-width-main: 1536px;
   --container-width-adjacent: 1120px;
+  --container-notification: 450px;
 
   /* Widths & Heights*/
   --width-VW: 100vw;
@@ -777,4 +779,62 @@ textarea {
   color: var(--plain-white);
   transition: 0.3s;
   box-shadow: var(--box-shadow);
+}
+
+/*-------------------------------------
+	10. Notifications
+--------------------------------------*/ 
+#alert {
+  position: fixed;
+  bottom: 0%;
+  left: 0;
+  width: var(--container-notification);
+}
+
+.alert-container-success {
+  display: flex;
+  justify-content: flex-start;
+  align-items: start;
+  border-radius: var(--2);
+  background: var(--color-success);
+  padding: var(--4);
+  gap: var(--3);
+}
+
+.alert-container-fail {
+  display: flex;
+  justify-content: flex-start;
+  align-items: start;
+  border-radius: var(--2);
+  background: var(--color-fail);
+  padding: var(--4);
+  gap: var(--3);
+}
+
+.alert-content {
+  display: flex;
+  flex-direction: column;
+  align-self: stretch;
+  width: var(--percent-100);
+  flex: 1;
+  flex-basis: 0%;
+}
+
+.alert-description {
+  display: flex;
+  flex-direction: column;
+  width: var(--percent-100);
+}
+
+.alert-header {
+  font-size: var(--small-heading);
+  line-height: var(--line-height-m);
+  font-weight: 600;
+  margin-bottom: var(--1);
+}
+
+.alert-message {
+  font-size: var(--text);
+  font-weight: 400;
+  line-height: var(--line-height-text);
 }
