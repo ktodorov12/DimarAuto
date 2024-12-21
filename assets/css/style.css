@@ -308,16 +308,6 @@ textarea {
   transition: all 0.7s;
 }
 
-/* Gallery photos */
-.gallery-item {
-  aspect-ratio: 1.15;
-  width: var(--percent-100);
-  height: auto;
-  background-size: cover;
-  background-position: center;
-  box-shadow: var(--box-shadow);
-}
-
 /*-------------------------------------
 	2.Nav Bar
 --------------------------------------*/
@@ -327,7 +317,7 @@ textarea {
   width: var(--percent-100);
   box-shadow: var(--box-shadow);
   font-weight: 900;
-  z-index: 10000;
+  z-index: 500;
 }
 
 .nav-pc {
@@ -403,6 +393,15 @@ textarea {
   grid-template-rows: auto auto;
   gap: var(--4);
   width: var(--percent-30);
+}
+
+.gallery-item-about {
+  aspect-ratio: 1.15;
+  width: var(--percent-100);
+  height: auto;
+  background-size: cover;
+  background-position: center;
+  box-shadow: var(--box-shadow);
 }
 
 .about-1 {
@@ -606,27 +605,91 @@ textarea {
 /*-------------------------------------
 	7. Gallery
 --------------------------------------*/
-.gallery-hero-image {
-  aspect-ratio: 2.35;
-  background-size: cover;
-  object-position: center;
-  width: var(--percent-75);
+.gallery .filter-container {
+  display: flex;
+  justify-content: center;
 }
 
-.gallery-grid {
+.gallery .tab {
+  text-align: center;
+  font-size: var(--text);
+  color: var(--text-color);
+  font-weight: 900;
+  margin: var(--8);
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.gallery .tab-active {
+  color: var(--adjacent-color);
+}
+
+.gallery .tab:hover {
+  color: var(--adjacent-color);
+}
+
+.gallery .gallery-content {
   display: grid;
-  grid-template-columns: repeat(5, 1fr);
-  gap: var(--5);
-  width: var(--percent-75);
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(3, 300px);
 }
 
-.gallery-item {
-  aspect-ratio: 1.15;
+.gallery .galery-item{
   width: var(--percent-100);
   height: var(--percent-100);
-  background-size: cover;
-  background-position: center;
+  position: relative;
+  overflow: hidden;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  border-radius: 10px;
+  border: var(--1) solid var(--white);
+}
+
+.gallery .galery-item:hover {
+  transform: translateY(-8px);
   box-shadow: var(--box-shadow);
+}
+
+.gallery .hidden {
+  visibility: hidden; 
+  display: none;  
+}
+
+.gallery .galery-item img {
+  width: var(--percent-100);
+  height: var(--percent-100);
+  object-fit: cover;
+  object-position: center;
+}
+
+.overlay {
+  position: fixed;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  width: var(--percent-100);
+  height: var(--percent-100);
+  background: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(8px);
+  display: none;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.overlay-inner {
+  position: relative;
+  background: 0;
+  width: var(--percent-80);
+  height: var(--percent-80);
+  overflow: hidden;
+}
+
+.overlay-img {
+  width: 100%;
+  height: 100%;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+  object-fit: contain;
 }
 
 /*-------------------------------------

@@ -66,16 +66,16 @@
             </p>
           </div>
           <div class="gallery-grid-about">
-            <img loading="lazy" src="assets/images/3.webp" class="gallery-item about-1" alt="about item 1" />
+            <img loading="lazy" src="assets/images/3.webp" class="gallery-item-about about-1" alt="about item 1" />
             <img
               loading="lazy"
               src="https://cdn.builder.io/api/v1/image/assets/TEMP/e709642cc313c6b4cbc2bd5551f85d8e9cc643b7c9a2bed7ca19f1a845114e2d?placeholderIfAbsent=true&apiKey=97d63ebc9c384183bf2a26f6d1aeb723"
-              class="gallery-item about-2"
+              class="gallery-item-about about-2"
               alt="about item 2" />
             <img
               loading="lazy"
               src="https://cdn.builder.io/api/v1/image/assets/TEMP/490f5bdef45741b5b0fa8a1527dcfa9e8dddce8503d1fde419d6b85253f9eefe?placeholderIfAbsent=true&apiKey=97d63ebc9c384183bf2a26f6d1aeb723"
-              class="gallery-item about-3"
+              class="gallery-item-about about-3"
               alt="about item 2" />
           </div>
         </div>
@@ -244,40 +244,51 @@
     </div>
 
     <!-- Gallery section -->
-    <div id="gallery" class="container padding-container scroll-item">
-      <div class="flex-container">
-        <h1 class="main-heading-underline">Галерия</h1>
-        <img
-          loading="lazy"
-          src="https://cdn.builder.io/api/v1/image/assets/TEMP/16a49a084f799855f142bcc9a317478bdf2b8128172726eb33509059e42ff274?placeholderIfAbsent=true&apiKey=97d63ebc9c384183bf2a26f6d1aeb723"
-          class="gallery-hero-image"
-          alt="Gallery hero image" />
-        <div class="gallery-grid">
-          <img
-            loading="lazy"
-            src="https://cdn.builder.io/api/v1/image/assets/TEMP/e709642cc313c6b4cbc2bd5551f85d8e9cc643b7c9a2bed7ca19f1a845114e2d?placeholderIfAbsent=true&apiKey=97d63ebc9c384183bf2a26f6d1aeb723"
-            class="gallery-item"
-            alt="Gallery item 1" />
-          <img
-            loading="lazy"
-            src="https://cdn.builder.io/api/v1/image/assets/TEMP/490f5bdef45741b5b0fa8a1527dcfa9e8dddce8503d1fde419d6b85253f9eefe?placeholderIfAbsent=true&apiKey=97d63ebc9c384183bf2a26f6d1aeb723"
-            class="gallery-item"
-            alt="Gallery item 2" />
-          <img
-            loading="lazy"
-            src="https://cdn.builder.io/api/v1/image/assets/TEMP/6158f7184d8043577cfe249e418e665dd382f606ec9bcfa6a2942c4cdebf5c0b?placeholderIfAbsent=true&apiKey=97d63ebc9c384183bf2a26f6d1aeb723"
-            class="gallery-item"
-            alt="Gallery item 3" />
-          <img
-            loading="lazy"
-            src="https://cdn.builder.io/api/v1/image/assets/TEMP/b215e4ac78b5cf903109bdf3d8a0fbc1f9f6de3027afc5bf8ddb5c6dd1f3a52c?placeholderIfAbsent=true&apiKey=97d63ebc9c384183bf2a26f6d1aeb723"
-            class="gallery-item"
-            alt="Gallery item 4" />
-          <img
-            loading="lazy"
-            src="https://cdn.builder.io/api/v1/image/assets/TEMP/7964bf758754b5c1d49ea529e9d3e5a52a7f758f43a5d53e39a8cca7c938da8b?placeholderIfAbsent=true&apiKey=97d63ebc9c384183bf2a26f6d1aeb723"
-            class="gallery-item"
-            alt="Gallery item 5" />
+    <div id="gallery" class="container padding-container">
+      <div class="gallery">
+        <div>
+          <h1 class="main-heading-underline">Галерия<h1>
+          <div class="filter-container">
+            <p class="tab tab-active" data-filter="all">Всички</p>
+            <p class="tab" data-filter="worker">Екип</p>
+            <p class="tab" data-filter="construction">Конструкция</p>
+            <p class="tab" data-filter="machine">Машини</p>
+          </div>
+          <div class="gallery-content">
+            <div class="galery-item webdes worker">
+              <img src="assets/images/205402970-car-service-station-auto-repair-car-service-station-auto-repair-shop-auto-mechanic.jpg" alt="${name}" />
+            </div>
+            <div class="galery-item webdes construction">
+              <img src="assets/images/istockphoto-1589417945-612x612.jpg" alt="${name}" />
+            </div>
+            <div class="galery-item webdes worker">
+              <img src="assets/images/worker-uniform-disassembles-vehicle-engine-car-service-station-automobile-checking-inspection-professional-diagnostics-173424972.webp" alt="${name}" />
+            </div>
+            <div class="galery-item webdes machine">
+              <img src="assets/images/worker-uniform-disassembles-vehicle-engine-car-service-station-automobile-checking-inspection-professional-diagnostics-173424972.webp" alt="${name}" />
+            </div>
+            <div class="galery-item webdes machine">
+              <img src="assets/images/download.jpg" alt="${name}" />
+            </div>
+            <div class="galery-item webdes construction">
+              <img src="assets/images/663cf39e84dbc946d84adce0_cHJpdmF0ZS9sci9pbWFnZXMvd2Vic2l0ZS8yMDIyLTExL2ZsNTAyMTEwMzU4MjgtaW1hZ2UuanBn.png" alt="${name}" />
+            </div>
+            <div class="galery-item webdes worker">
+              <img src="assets/images/avtoservizi-postavat-mnogokratno-upotrebavani-chasti-1.jpg" alt="${name}" />
+            </div>
+            <div class="galery-item webdes machine">
+              <img src="assets/images/663cf39e84dbc946d84adce0_cHJpdmF0ZS9sci9pbWFnZXMvd2Vic2l0ZS8yMDIyLTExL2ZsNTAyMTEwMzU4MjgtaW1hZ2UuanBn.png" alt="${name}" />
+            </div>
+            <div class="galery-item webdes worker">
+              <img src="assets/images/worker-uniform-disassembles-vehicle-engine-car-service-station-automobile-checking-inspection-professional-diagnostics-173424972.webp" alt="${name}" />
+            </div>
+          </div>
+        </div>
+      </div>  
+
+      <div id="overlay" class="overlay">
+        <div class="overlay-inner">
+          <img class="overlay-img" id="overlay-img" src="" alt="Overlay Image" />
         </div>
       </div>
     </div>
