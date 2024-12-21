@@ -10,6 +10,7 @@
 8. Maps
 9. Footer
 10. Notifivations
+11. Video Modal
 ==========================================*/
 
 :root {
@@ -22,7 +23,7 @@
   --adjacent-hover: rgba(0, 119, 204, 0.4);
   --bg-color: #f7f8fc;
   --color-success: #def7ec;
-  --color-fail:  #D8000C;
+  --color-fail:  #ff0033;
   --color-card: linear-gradient(135deg, rgba(255, 255, 255, 1), rgba(240, 239, 239, 0.2), rgba(247, 248, 252, 0.5));
 
   --description-text: #e5e7eb;
@@ -837,4 +838,58 @@ textarea {
   font-size: var(--text);
   font-weight: 400;
   line-height: var(--line-height-text);
+}
+
+/*-------------------------------------
+	11. Video Modal
+--------------------------------------*/
+.video-modal {
+  position: fixed;
+  inset: 0;
+  margin: 0 auto;
+  width: var(--percent-100);
+  height: var(--percent-100);
+  background: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(8px);
+  border-radius: 10px;
+  box-shadow: var(--box-shadow);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  z-index: 999;
+  animation: fade-in 0.3s ease-out;
+  animation: backdrop-fade 0.3s ease-out;
+}
+
+.video-container {
+  position: relative;
+  max-width: var(--container-width-adjacent);
+}
+
+.video-modal video {
+  position: relative;
+  width: var(--percent-100);
+  border-radius: var(--2);
+  margin-top: var(--5);
+  z-index: 999;
+}
+
+.video-modal-close {
+  position: inherit;
+  top: 70px;
+  left: 95%;
+  background: none;
+  border: none;
+  font-size: var(--8);
+  font-weight: 900;
+  color: #333;
+  cursor: pointer;
+  transition: 0.2s;
+  z-index: 1000;
+}
+
+.video-modal-close:hover {
+  color: var(--plain-white);
+  transform: scale(1.2);
 }

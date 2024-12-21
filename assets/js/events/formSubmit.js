@@ -15,11 +15,7 @@ async function onSubmit(e) {
 
   const form = document.getElementById("contacts-form");
 
-  const data = {
-    name: document.getElementById("name")?.value.trim(),
-    email: document.getElementById("email")?.value.trim(),
-    message: document.getElementById("message")?.value.trim(),
-  };
+  const data = Object.fromEntries(["name", "email", "message"].map((id) => [id, document.getElementById(id)?.value.trim()]));
 
   const check = Object.values(data).some((v) => !v);
 
@@ -29,7 +25,7 @@ async function onSubmit(e) {
 
   try {
     if (check) {
-      throw new Error("all fields required");
+      throw new Error("Моля, попълнете всички полета!");
     }
 
     const response = await fetch("http://localhost:3000", {
@@ -46,7 +42,7 @@ async function onSubmit(e) {
 
     createNotification("success");
   } catch (error) {
-    createNotification("fail");
+    createNotification("fail", error.message || "Възникна неочаквана грешка! Моля, опитайте отново.");
   } finally {
     form.disabled = false;
     submitBtn.disabled = false;

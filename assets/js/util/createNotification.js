@@ -1,4 +1,4 @@
-export default function createNotification(status) {
+export default function createNotification(status, message) {
   const body = document.querySelector("body");
 
   let notification = document.createElement("div");
@@ -23,8 +23,7 @@ export default function createNotification(status) {
             <div class="alert-description">
                 <div class="alert-header">"Грешка"</div>
                 <div class="alert-message">
-                    Възникна неочаквана грешка!
-                    Моля, опитайте отново.
+                    ${message}
                 </div>
             </div>
         </div>
