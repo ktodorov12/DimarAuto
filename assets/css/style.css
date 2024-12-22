@@ -259,6 +259,7 @@ textarea {
   overflow: hidden;
   font-weight: 400;
   line-height: var(--line-height-text);
+  max-width: var(--width-characters);
 }
 
 .main-text {
@@ -270,6 +271,9 @@ textarea {
   font-weight: 400;
   line-height: var(--line-height-text);
   transition: all 0.7s;
+  text-align: start;
+  opacity: 0.8;
+  margin-top: var(--2);
 }
 
 /*-------------------------------------
@@ -319,6 +323,10 @@ textarea {
   width: var(--percent-100);
   box-shadow: var(--box-shadow);
   overflow: hidden;
+}
+
+.hero-section-content .hero-heading {
+  text-align: center;
 }
 
 .hero-section-container::before {
@@ -391,6 +399,8 @@ textarea {
     url("/assets/images/car-service-key-features-a-1920x1080tcm-3154-1323224_Small-Landscape.webp") center/cover fixed;
   background-size: cover;
   box-shadow: var(--box-shadow);
+  width: var(--width-VW);
+  height: var(--height-VH-70);
 }
 
 .features-cards {
