@@ -11,5 +11,5 @@ function app() {
     formSubmit();
     openVideoModal();
     galleryEvents();
-    scroll();
+    // scroll();
 }

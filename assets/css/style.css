@@ -362,7 +362,7 @@ textarea {
 .gallery-grid-about {
   display: grid;
   grid-template-columns: 2fr 1fr;
-  grid-template-rows: auto auto;
+  grid-template-rows: 1fr 1fr;
   gap: var(--4);
   width: var(--percent-30);
 }
@@ -374,6 +374,12 @@ textarea {
   background-size: cover;
   background-position: center;
   box-shadow: var(--box-shadow);
+}
+
+.gallery-grid-about img {
+  object-fit: cover;
+  height: 100%;
+  width: 100%;
 }
 
 .about-1 {
@@ -943,12 +949,12 @@ textarea {
   }
 }
 
-.scroll-item {
+/* .scroll-item {
   opacity: 0;
   transform: translateY(-20px);
   transition: 0.5s;
 }
 
 .scroll-item.visible {
-  animation: scroll-fade 1.5s ease-out forwards; /* Play the sliding animation */
-}
+  animation: scroll-fade 1.5s ease-out forwards;
+} */
