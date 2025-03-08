@@ -109,6 +109,7 @@ body {
   font-family: var(--ff);
   font-size: var(--text);
   max-width: var(--width-VW);
+  overflow-x: hidden;
 }
 
 ul,
@@ -314,6 +315,11 @@ textarea {
   height: var(--16);
 }
 
+#nav .mobile-menu {
+  display: none;
+  visibility: hidden;
+}
+
 /*-------------------------------------
 	3.Hero section
 --------------------------------------*/
@@ -337,7 +343,7 @@ textarea {
   width: var(--percent-100);
   height: var(--percent-100);
   background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)),
-    url("/assets/images/205402970-car-service-station-auto-repair-car-service-station-auto-repair-shop-auto-mechanic.jpg") center/cover fixed;
+    url("/assets/images/truck.jpg") center/cover fixed;
   background-size: cover;
   box-shadow: var(--box-shadow);
   z-index: 1;
@@ -402,7 +408,7 @@ textarea {
 --------------------------------------*/
 .features-carousel {
   background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),
-    url("/assets/images/car-service-key-features-a-1920x1080tcm-3154-1323224_Small-Landscape.webp") center/cover fixed;
+    url("/assets/images/truck.jpg") center/cover fixed;
   background-size: cover;
   box-shadow: var(--box-shadow);
   width: var(--width-VW);
@@ -936,25 +942,3 @@ textarea {
   color: var(--plain-white);
   transform: scale(1.2);
 }
-
-@keyframes scroll-fade {
-  0% {
-    opacity: 0;
-    transform: translateY(-40px);
-  }
-
-  100% {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-/* .scroll-item {
-  opacity: 0;
-  transform: translateY(-20px);
-  transition: 0.5s;
-}
-
-.scroll-item.visible {
-  animation: scroll-fade 1.5s ease-out forwards;
-} */

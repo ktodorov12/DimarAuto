@@ -15,7 +15,7 @@
   </head>
   <body>
     <!-- Navigation -->
-    <nav id="nav" class="scroll-item">
+    <nav id="nav">
       <ul class="nav-pc">
         <li>
           <a href="#gallery">ГАЛЕРИЯ</a>
@@ -37,10 +37,37 @@
           <a href="#contacts">КОНТАКТИ</a>
         </li>
       </ul>
+
+      <div class="mobile-menu">
+        <input type="checkbox" id="menu-toggle" />
+        <div class="spans">
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+        <ul>
+          <li>
+            <a href="#about">ЗАЩО НАС</a>
+          </li>
+          <li>
+            <a href="#features">УСЛУГИ</a>
+          </li>
+          <li>
+            <a href="#gallery">ГАЛЕРИЯ</a>
+          </li>
+          <li>
+            <a href="#contacts">КОНТАКТИ</a>
+          </li>
+        </ul>
+        <a href="#hero" class="logo">
+          <img
+            src="assets/images/abstract-initial-letter-mz-logo-in-black-color-isolated-in-white-background-applied-for-clothing-brand-logo-also-suitable-for-the-brands-or-companies-that-have-an-initial-name-zm-vector.jpg" />
+        </a>
+      </div>
     </nav>
 
     <!-- Hero section -->
-    <div id="hero" class="hero-section-container scroll-item">
+    <div id="hero" class="hero-section-container">
       <div class="container">
         <div class="hero-section-content">
           <h1 class="hero-heading">Изключителни услуги за ремонт на автомобили</h1>
@@ -50,7 +77,7 @@
     </div>
 
     <!-- About section -->
-    <div id="about" class="container padding-container scroll-item">
+    <div id="about" class="container padding-container">
       <div class="flex-container">
         <h1 class="main-heading-underline">За нас</h1>
         <div class="flex-container-row">
@@ -66,15 +93,15 @@
             </p>
           </div>
           <div class="gallery-grid-about">
-            <img loading="lazy" src="assets/images/3.webp" class="gallery-item-about about-1" alt="about item 1" />
+            <img loading="lazy" src="assets/images/truck.jpg" class="gallery-item-about about-1" alt="about item 1" />
             <img
               loading="lazy"
-              src="https://cdn.builder.io/api/v1/image/assets/TEMP/e709642cc313c6b4cbc2bd5551f85d8e9cc643b7c9a2bed7ca19f1a845114e2d?placeholderIfAbsent=true&apiKey=97d63ebc9c384183bf2a26f6d1aeb723"
+              src="assets/images/truck.jpg"
               class="gallery-item-about about-2"
               alt="about item 2" />
             <img
               loading="lazy"
-              src="https://cdn.builder.io/api/v1/image/assets/TEMP/490f5bdef45741b5b0fa8a1527dcfa9e8dddce8503d1fde419d6b85253f9eefe?placeholderIfAbsent=true&apiKey=97d63ebc9c384183bf2a26f6d1aeb723"
+              src="assets/images/truck.jpg"
               class="gallery-item-about about-3"
               alt="about item 2" />
           </div>
@@ -83,7 +110,7 @@
     </div>
 
     <!-- Carousel -->
-    <div class="features-carousel scroll-item">
+    <div class="features-carousel">
       <div class="container padding-container">
         <div class="flex-container-row">
           <div class="features-cards">
@@ -131,7 +158,7 @@
     </div>
 
     <!-- Services section -->
-    <div id="features" class="services scroll-item">
+    <div id="features" class="services">
       <div class="container padding-container">
         <div class="flex-container">
           <h1 class="main-heading-underline">Нашите Услуги</h1>
@@ -244,7 +271,7 @@
     </div>
 
     <!-- Gallery section -->
-    <div id="gallery" class="container padding-container scroll-item">
+    <div id="gallery" class="container padding-container">
       <div class="gallery">
         <div>
           <h1 class="main-heading-underline">Галерия<h1>
@@ -256,7 +283,7 @@
           </div>
           <div class="gallery-content">
             <div class="galery-item webdes worker">
-              <img src="assets/images/205402970-car-service-station-auto-repair-car-service-station-auto-repair-shop-auto-mechanic.jpg" alt="${name}" />
+              <img src="assets/images/truck.jpg" alt="${name}" />
             </div>
             <div class="galery-item webdes construction">
               <img src="assets/images/istockphoto-1589417945-612x612.jpg" alt="${name}" />
@@ -268,7 +295,7 @@
               <img src="assets/images/worker-uniform-disassembles-vehicle-engine-car-service-station-automobile-checking-inspection-professional-diagnostics-173424972.webp" alt="${name}" />
             </div>
             <div class="galery-item webdes machine">
-              <img src="assets/images/download.jpg" alt="${name}" />
+              <img src="assets/images/truck.jpg" alt="${name}" />
             </div>
             <div class="galery-item webdes construction">
               <img src="assets/images/663cf39e84dbc946d84adce0_cHJpdmF0ZS9sci9pbWFnZXMvd2Vic2l0ZS8yMDIyLTExL2ZsNTAyMTEwMzU4MjgtaW1hZ2UuanBn.png" alt="${name}" />
@@ -277,7 +304,7 @@
               <img src="assets/images/avtoservizi-postavat-mnogokratno-upotrebavani-chasti-1.jpg" alt="${name}" />
             </div>
             <div class="galery-item webdes machine">
-              <img src="assets/images/663cf39e84dbc946d84adce0_cHJpdmF0ZS9sci9pbWFnZXMvd2Vic2l0ZS8yMDIyLTExL2ZsNTAyMTEwMzU4MjgtaW1hZ2UuanBn.png" alt="${name}" />
+              <img src="assets/images/truck.jpg" alt="${name}" />
             </div>
             <div class="galery-item webdes worker">
               <img src="assets/images/worker-uniform-disassembles-vehicle-engine-car-service-station-automobile-checking-inspection-professional-diagnostics-173424972.webp" alt="${name}" />
@@ -294,7 +321,7 @@
     </div>
 
     <!-- Maps -->
-    <div class="map-container scroll-item">
+    <div class="map-container">
       <iframe
         class="map-frame"
         src="https://maps.google.com/maps?width=100%25&amp;height=600&amp;hl=en&amp;q=%D0%9A%D1%80%D0%B5%D0%BC%D0%B8%D0%BA%D0%BE%D0%B2%D1%86%D0%B8,%20%D1%83%D0%BB.%20%D0%95%D0%B2%D1%82%D0%B8%D0%BC%20%D0%95%D0%B2%D1%82%D0%B8%D0%BC%D0%BE%D0%B2%201,%201849%20%D0%A1%D0%BE%D1%84%D0%B8%D1%8F+(My%20Business%20Name)&amp;t=p&amp;z=14&amp;ie=UTF8&amp;iwloc=B&amp;output=embed">
@@ -302,7 +329,7 @@
     </div>
 
     <!-- Footer -->
-    <div id="contacts" class="contact-section scroll-item">
+    <div id="contacts" class="contact-section">
       <div class="container padding-container flex-container">
         <div class="contact-wrapper">
           <div class="contact-content">
