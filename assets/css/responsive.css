@@ -202,7 +202,9 @@
   }
 
   #nav .logo {
-    margin: 0 auto;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
     width: var(--12);
     height: var(--12);
   }
@@ -284,7 +286,7 @@
   /* For the links and lists */
   #nav .mobile-menu ul {
     position: absolute;
-    width: 102vw;
+    width: 110vw;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -403,5 +405,21 @@
   .video-modal-close {
     font-size: var(--5);
     left: 92%;
+  }
+}
+
+@media (max-width: 400px) {
+  :root {
+    --container-width-main: 355px;
+    --container-width-adjacent: 300px;
+
+    --heading: 0.7rem;
+    --subheading: 0.567rem;
+    --small-heading: 0.65rem;
+    --text: 0.54rem;
+
+    --width-card: 265px;
+    --box-shadow: 0 0.4px var(--1) -1px rgba(0, 0, 0, 0.08), 0 1.2px var(--2) -1px rgba(0, 0, 0, 0.06), 0 2px 5px -1px rgba(0, 0, 0, 0.05),
+      0 var(--4) var(--4) -1px rgba(0, 0, 0, 0.04);
   }
 }
