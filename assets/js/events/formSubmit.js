@@ -28,7 +28,7 @@ async function onSubmit(e) {
       throw new Error("Моля, попълнете всички полета!");
     }
 
-    const response = await fetch("http://localhost:3000", {
+    const response = await fetch("https://web-vwy0.onrender.com", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -42,7 +42,7 @@ async function onSubmit(e) {
 
     createNotification("success");
   } catch (error) {
-    createNotification("fail", error.message || "Възникна неочаквана грешка! Моля, опитайте отново.");
+    createNotification("fail", "Възникна неочаквана грешка! Моля, опитайте отново.");
   } finally {
     form.disabled = false;
     submitBtn.disabled = false;
