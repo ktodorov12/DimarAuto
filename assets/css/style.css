@@ -343,7 +343,7 @@ textarea {
   width: var(--percent-100);
   height: var(--percent-100);
   background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)),
-    url("./assets/images/truck.jpg") center/cover fixed;
+    url("../images/truck.jpg") center/cover fixed;
   background-size: cover;
   box-shadow: var(--box-shadow);
   z-index: 1;
@@ -408,7 +408,7 @@ textarea {
 --------------------------------------*/
 .features-carousel {
   background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),
-    url("./assets/images/truck.jpg") center/cover fixed;
+    url("../images/truck.jpg") center/cover fixed;
   background-size: cover;
   box-shadow: var(--box-shadow);
   width: var(--width-VW);
