@@ -231,13 +231,11 @@
   /* For the close button */
   #nav .mobile-menu input {
     display: flex;
-    width: 40px;
-    height: 30px;
+    width: 60px;
+    height: 50px;
     position: absolute;
     cursor: pointer;
     opacity: 0;
-    margin-top: 12px;
-    margin-left: 12px;
     z-index: 1000;
   }
 
@@ -408,7 +406,7 @@
   }
 }
 
-@media (max-width: 400px) {
+@media (max-width: 450px) {
   :root {
     --container-width-main: 355px;
     --container-width-adjacent: 300px;
