@@ -346,7 +346,7 @@ textarea {
   width: var(--percent-100);
   height: var(--percent-100);
   background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)),
-    url("../images/bg.jpg") center/cover fixed;
+    url("../images/download.jpg") center/cover fixed;
   background-size: cover;
   background-repeat: no-repeat;
   box-shadow: var(--box-shadow);
