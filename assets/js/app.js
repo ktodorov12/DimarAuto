@@ -7,6 +7,5 @@ window.addEventListener("load", () => app());
 function app() {
     carouselOnChange();
     formSubmit();
-    openVideoModal();
     mobileMenu();
 }

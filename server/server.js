@@ -37,7 +37,7 @@ app.post("/", async (req, res) => {
     const mailOptions = {
       from: email,
       to: process.env.USER,
-      subject: `Уеб - съобщение от ${name}`,
+      subject: `Ди-Мар Ауто - съобщение от ${name}`,
       text: `
         Име: ${name}
         Имейл: ${email}
