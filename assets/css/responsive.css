@@ -33,6 +33,10 @@
     margin-top: var(--4);
   }
 
+  .about-item {
+    height: 240px;
+  }
+
   /* Form */
   .contact-section {
     max-width: 100%;
@@ -117,6 +121,7 @@
 
   .about-item {
     width: var(--percent-75);
+    height: 340px;
   }
 
   /* Services */
@@ -311,6 +316,7 @@
 
   .about-item {
     width: var(--percent-100);
+    height: 250px;
   }
 
   .features-cards {
