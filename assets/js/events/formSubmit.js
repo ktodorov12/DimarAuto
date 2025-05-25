@@ -1,8 +1,13 @@
 import createNotification from "../util/createNotification.js";
 
-export default function formSubmit(e) {
-  const form = document.getElementById("contacts-form");
+const body = document.querySelector("body");
+const form = document.getElementById("contacts-form");
+const submitButton = form.querySelector('button[type="submit"]');
 
+const overlay = document.createElement("div");
+const loader = document.createElement("div");
+
+export default function formSubmit(e) {
   if (!form) {
     return;
   }
@@ -13,20 +18,26 @@ export default function formSubmit(e) {
 async function onSubmit(e) {
   e.preventDefault();
 
-  const form = document.getElementById("contacts-form");
-
-  const data = Object.fromEntries(["name", "email", "message"].map((id) => [id, document.getElementById(id)?.value.trim()]));
-
+  const data = Object.fromEntries(
+    ["name", "email", "message"].map((id) => [
+      id,
+      document.getElementById(id)?.value.trim(),
+    ])
+  );
   const check = Object.values(data).some((v) => !v);
-
-  const submitBtn = document.querySelector(".submit-button");
-  submitBtn.disabled = true;
-  form.disabled = true;
 
   try {
     if (check) {
       throw new Error("Моля, попълнете всички полета!");
     }
+
+    form.removeEventListener("submit", onSubmit);
+    submitButton.disabled = true;
+
+    overlay.classList.add("overlay");
+    loader.classList.add("spinner");
+    overlay.appendChild(loader);
+    body.appendChild(overlay);
 
     const response = await fetch("https://web-vwy0.onrender.com", {
       method: "POST",
@@ -44,7 +55,8 @@ async function onSubmit(e) {
   } catch (error) {
     createNotification("fail", "Възникна неочаквана грешка! Моля, опитайте отново.");
   } finally {
-    form.disabled = false;
-    submitBtn.disabled = false;
+    form.addEventListener("submit", onSubmit);
+    submitButton.disabled = false;
+    body.removeChild(overlay);
   }
 }
