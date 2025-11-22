@@ -19,16 +19,21 @@ async function onSubmit(e) {
   e.preventDefault();
 
   const data = Object.fromEntries(
-    ["name", "email", "message"].map((id) => [
+    ["name", "email", "phone", "message"].map((id) => [
       id,
       document.getElementById(id)?.value.trim(),
     ])
   );
+  const gdpr = document.getElementById("gdpr").checked;
   const check = Object.values(data).some((v) => !v);
 
   try {
     if (check) {
       throw new Error("Моля, попълнете всички полета!");
+    }
+
+    if (!gdpr) {
+      throw new Error("Моля, приемете условията за поверителност!");
     }
 
     form.removeEventListener("submit", onSubmit);

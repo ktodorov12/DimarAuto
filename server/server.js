@@ -33,7 +33,7 @@ const transporter = nodemailer.createTransport({
 
 app.post("/", async (req, res) => {
   try {
-    const { name, email, message } = req.body;
+    const { name, email, phone, message } = req.body;
     const mailOptions = {
       from: email,
       to: process.env.USER,
@@ -41,6 +41,7 @@ app.post("/", async (req, res) => {
       text: `
         Име: ${name}
         Имейл: ${email}
+        Телефон: ${phone}
         Съобщение: ${message}
             `,
     };

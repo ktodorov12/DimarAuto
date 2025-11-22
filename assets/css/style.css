@@ -381,6 +381,19 @@ textarea {
   object-fit: cover;
 }
 
+.services-link {
+  display: inline-block;
+  margin-top: var(--4);
+  font-size: var(--small-heading);
+  font-weight: 900;
+  color: var(--adjacent-color);
+  text-transform: uppercase;
+}
+
+.services-link:hover {
+  color: var(--dark-color);
+}
+
 /*-------------------------------------
 	5. Carousel
 --------------------------------------*/
@@ -632,6 +645,7 @@ textarea {
 .input-wrapper {
   display: flex;
   flex-direction: column;
+  gap: var(--2);
 }
 
 .form-input {
@@ -641,6 +655,17 @@ textarea {
   border: 1px solid rgba(255, 255, 255, 0.5);
   color: rgba(255, 253, 253, 0.5);
   width: var(--percent-100);
+}
+
+/* Remove arrows from number input */
+input[type=number]::-webkit-inner-spin-button, 
+input[type=number]::-webkit-outer-spin-button { 
+  -webkit-appearance: none; 
+  margin: 0; 
+}
+
+input[type=number] {
+  -moz-appearance: textfield;
 }
 
 .message-column {
@@ -667,6 +692,21 @@ textarea {
   border: 1px solid rgba(255, 255, 255, 0.5);
   width: var(--percent-100);
   height: var(--height-textarea);
+}
+
+.gdpr-wrapper {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  gap: var(--2);
+  margin-top: var(--4);
+  color: var(--white);
+}
+
+.gdpr-label {
+  font-size: 0.8rem;
+  line-height: 1.2;
+  cursor: pointer;
 }
 
 .submit-button {
@@ -797,6 +837,36 @@ textarea {
   border-color: white transparent white transparent;
   border-radius: 50%;
   animation: spin 1.3s linear infinite;
+}
+
+/* Floating Button */
+.floating-btn-container {
+  position: fixed;
+  bottom: 20px;
+  left: 20px;
+  z-index: 1000;
+  transition: all 0.3s ease-in-out;
+}
+
+.floating-btn {
+  background-color: var(--adjacent-color);
+  color: var(--plain-white);
+  border: none;
+  border-radius: 50px;
+  padding: 15px 25px;
+  font-size: 1rem;
+  font-weight: bold;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-transform: uppercase;
+  opacity: 1;
+}
+
+.floating-btn:hover {
+  background-color: var(--dark-color);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2);
 }
 
 @keyframes spin {

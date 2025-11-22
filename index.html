@@ -86,6 +86,7 @@
               В сервиз "Ди-Мар Ауто" предлагаме широка гама от услуги – от диагностика и ремонт до поддръжка и оптимизация на автомобила. Независимо дали става дума за рутинна
               проверка или сложен ремонт, можете да разчитате на нас за бързо и ефективно решение. Доверете ни се и оставете вашия автомобил в сигурни ръце.
             </p>
+            <a href="#features" class="services-link">Услуги</a>
           </div>
           <img loading="lazy" src="assets/images/truck.jpg" class="about-item" alt="Снимка система за коли" />
         </div>
@@ -284,14 +285,20 @@
                       <label for="name" class="visually-hidden">Име</label>
                       <input type="text" id="name" class="form-input" placeholder="Име" required />
                       <label for="email" class="visually-hidden">Имейл</label>
-                      <input type="email" id="email" class="form-input" placeholder="Имейл" required style="margin-top: 29px" />
+                      <input type="email" id="email" class="form-input" placeholder="Имейл" required />
+                      <label for="phone" class="visually-hidden">Телефон</label>
+                      <input type="number" id="phone" class="form-input" placeholder="Телефон" required />
                     </div>
                   </div>
                   <div class="message-column">
                     <div class="message-wrapper">
-                      <label for="message" class="visually-hidden">Съобщение</label>
-                      <textarea id="message" class="form-textarea" placeholder="Съобщение" required></textarea>
-                      <button type="submit" class="submit-button">SUBMIT</button>
+                      <label for="message" class="visually-hidden">Накратко за вашия проблем</label>
+                      <textarea id="message" class="form-textarea" placeholder="Накратко за вашия проблем" required></textarea>
+                      <div class="gdpr-wrapper">
+                        <input type="checkbox" id="gdpr" required />
+                        <label for="gdpr" class="gdpr-label">Съгласен съм данните ми да бъдат обработвани от "Ди-Мар Ауто" за целите на запитването. Запознат съм с <a href="terms.html" target="_blank" style="color: #6fb9ff;">общите условия</a>.</label>
+                      </div>
+                      <button type="submit" class="submit-button">Изпращане</button>
                     </div>
                   </div>
                 </form>
@@ -300,6 +307,10 @@
           </div>
         </div>
       </div>
+    </div>
+    <!-- Floating Button -->
+    <div id="floating-btn-container" class="floating-btn-container">
+      <button id="floating-btn" class="floating-btn">Запазете час</button>
     </div>
   </body>
 </html>
