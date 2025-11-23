@@ -2,11 +2,10 @@ const express = require("express");
 const nodemailer = require("nodemailer");
 const cors = require("cors");
 const bodyParser = require("body-parser");
-const multer = require("multer");
+const rateLimit = require("express-rate-limit");
 require("dotenv").config();
 
 // Set up
-const upload = multer();
 const app = express();
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
@@ -18,6 +17,14 @@ app.use(cors());
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.json());
+
+const emailLimiter = rateLimit({
+	windowMs: 60 * 30 * 1000, // 30 minutes window
+	max: 5, // Limit each IP to 5 requests per windowMs
+	message: "Too many emails sent, please try again after 30 minutes",
+	standardHeaders: true, 
+	legacyHeaders: false, 
+});
 
 // Transporter data
 const transporter = nodemailer.createTransport({
@@ -31,7 +38,7 @@ const transporter = nodemailer.createTransport({
   },
 });
 
-app.post("/", async (req, res) => {
+app.post("/", emailLimiter, async (req, res) => {
   try {
     const { name, email, phone, message } = req.body;
     const mailOptions = {
