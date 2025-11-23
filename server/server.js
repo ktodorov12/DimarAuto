@@ -148,6 +148,6 @@ app.post("/", emailLimiter, validateContact, async (req, res) => {
   }
 });
 
-app.listen(PORT, "0.0.0.0", () =>
+app.listen(PORT, () =>
   console.log(`Server is listening on port ${PORT}`)
 );
