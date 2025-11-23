@@ -2,8 +2,6 @@ const express = require("express");
 const nodemailer = require("nodemailer");
 const cors = require("cors");
 const bodyParser = require("body-parser");
-const rateLimit = require("express-rate-limit");
-const { ipKeyGenerator } = require("express-rate-limit");
 require("dotenv").config();
 
 // Set up
@@ -26,21 +24,6 @@ app.use(
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.json());
-
-const emailLimiter = rateLimit({
-  windowMs: 30 * 60 * 1000, // 30 minutes
-  max: 5, // 5 requests per window per key
-  message: {
-    error: "Too many emails sent, please try again after 30 minutes.",
-  },
-  standardHeaders: true,
-  legacyHeaders: false,
-  keyGenerator: (req) => {
-    const ip = ipKeyGenerator(req); // IPv4/IPv6 safe
-    const email = (req.body?.email || "").trim().toLowerCase();
-    return `${ip}-${email}`;
-  },
-});
 
 function validateContactPayload(req, res, next) {
   const rawName = req.body?.name ?? "";
@@ -97,7 +80,7 @@ const transporter = nodemailer.createTransport({
 });
 
 // Route
-app.post("/", emailLimiter, validateContactPayload, async (req, res) => {
+app.post("/", validateContactPayload, async (req, res) => {
   try {
     const { name, email, phone, message } = req.contact;
 
