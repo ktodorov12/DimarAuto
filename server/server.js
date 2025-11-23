@@ -3,6 +3,7 @@ const nodemailer = require("nodemailer");
 const cors = require("cors");
 const bodyParser = require("body-parser");
 const rateLimit = require("express-rate-limit");
+const { ipKeyGenerator } = require("express-rate-limit");
 require("dotenv").config();
 
 // Set up
@@ -35,7 +36,7 @@ const emailLimiter = rateLimit({
   standardHeaders: true,
   legacyHeaders: false,
   keyGenerator: (req) => {
-    const ip = req.rateLimit.ipKeyGenerator(req); // IPv4/IPv6 safe
+    const ip = ipKeyGenerator(req); // IPv4/IPv6 safe
     const email = (req.body?.email || "").trim().toLowerCase();
     return `${ip}-${email}`;
   },
