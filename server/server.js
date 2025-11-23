@@ -98,7 +98,11 @@ const transporter = nodemailer.createTransport({
 
 // Debug SMTP
 transporter.verify((err, success) => {
-  console.log("SMTP status:", err || success);
+  if (err) {
+    console.error("SMTP ERROR:", err);
+    process.exit(1); // <-- crash on startup if SMTP broken
+  }
+  console.log("SMTP OK:", success);
 });
 
 // ----------- HANDLE TIMEOUTS / KILL -----------------
