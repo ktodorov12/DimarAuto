@@ -35,8 +35,8 @@ const emailLimiter = rateLimit({
   standardHeaders: true,
   legacyHeaders: false,
   keyGenerator: (req) => {
-    const ip = req.ip || "";
-    const email = (req.body && req.body.email) || "";
+    const ip = req.rateLimit.ipKeyGenerator(req); // IPv4/IPv6 safe
+    const email = (req.body?.email || "").trim().toLowerCase();
     return `${ip}-${email}`;
   },
 });
