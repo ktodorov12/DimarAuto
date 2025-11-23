@@ -107,18 +107,6 @@ transporter.verify((err, success) => {
   console.log("SMTP OK:", success);
 });
 
-// ----------- HANDLE TIMEOUTS / KILL -----------------
-const EMAIL_SEND_TIMEOUT = 8000; // 8 seconds
-
-async function sendEmailWithTimeout(mailOptions) {
-  return Promise.race([
-    transporter.sendMail(mailOptions),
-    new Promise((_, reject) =>
-      setTimeout(() => reject(new Error("EMAIL_TIMEOUT")), EMAIL_SEND_TIMEOUT)
-    ),
-  ]);
-}
-
 // -------------- ROUTE ---------------------
 app.post("/", emailLimiter, validateContact, async (req, res) => {
   try {
@@ -140,7 +128,7 @@ app.post("/", emailLimiter, validateContact, async (req, res) => {
 
     log("Sending email from:", email, "IP:", req.ip);
 
-    await sendEmailWithTimeout(mailOptions);
+    await transporter.sendMail(mailOptions);
 
     log("Email SENT successfully:", { name, email });
 
