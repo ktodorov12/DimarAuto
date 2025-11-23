@@ -94,6 +94,8 @@ const transporter = nodemailer.createTransport({
     user: process.env.USER,
     pass: process.env.PASSWORD,
   },
+  logger: true,   
+  debug: true,   
 });
 
 // Debug SMTP
