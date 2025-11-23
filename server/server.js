@@ -1,18 +1,17 @@
+require("dotenv").config();
 const express = require("express");
 const nodemailer = require("nodemailer");
 const cors = require("cors");
-const bodyParser = require("body-parser");
-require("dotenv").config();
+const rateLimit = require("express-rate-limit");
+const { ipKeyGenerator } = require("express-rate-limit");
 
-// Set up
 const app = express();
-app.set("trust proxy", 1);
-const PORT = process.env.PORT || 3000;
-app.listen(PORT, "0.0.0.0", () => {
-  console.log(`Server is listening on port ${PORT}`);
-});
 
-// Middlewares
+app.set("trust proxy", 1);
+
+const PORT = process.env.PORT || 3000;
+
+// ---------------- CORS --------------------
 app.use(
   cors({
     origin: ["https://dimarauto.com"],
@@ -21,20 +20,52 @@ app.use(
   })
 );
 
-app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: true }));
+// Allow OPTIONS preflight
+app.options("*", cors());
+
+// ---------------- LOGGING ---------------
+function log(...args) {
+  console.log(`[${new Date().toISOString()}]`, ...args);
+}
+
+app.use((req, res, next) => {
+  log(`Incoming request: ${req.method} ${req.originalUrl} - IP: ${req.ip}`);
+  next();
+});
+
+// ---------------- BODY PARSING -----------
 app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
 
-function validateContactPayload(req, res, next) {
-  const rawName = req.body?.name ?? "";
-  const rawEmail = req.body?.email ?? "";
-  const rawPhone = req.body?.phone ?? "";
-  const rawMessage = req.body?.message ?? "";
+// ---------------- RATE LIMIT --------------
+const emailLimiter = rateLimit({
+  windowMs: 30 * 60 * 1000,
+  max: 5,
+  message: {
+    error: "Too many emails sent, please try again after 30 minutes.",
+  },
+  standardHeaders: true,
+  legacyHeaders: false,
 
-  const name = String(rawName).trim();
-  const email = String(rawEmail).trim();
-  const phone = String(rawPhone).trim();
-  const message = String(rawMessage).trim();
+  keyGenerator: (req) => {
+    const ip = ipKeyGenerator(req);
+    const email = (req.body?.email || "").toLowerCase();
+    return `${ip}-${email}`;
+  },
+
+  handler: (req, res, next) => {
+    log("Rate limit triggered for IP:", req.ip, "Email:", req.body?.email);
+    res.status(429).json({
+      error: "Too many emails sent, please try again after 30 minutes.",
+    });
+  },
+});
+// --------------- VALIDATION --------------
+function validateContact(req, res, next) {
+  const name = String(req.body?.name || "").trim();
+  const email = String(req.body?.email || "").trim();
+  const phone = String(req.body?.phone || "").trim();
+  const message = String(req.body?.message || "").trim();
 
   if (!name || !email || !message) {
     return res.status(400).json({
@@ -42,32 +73,18 @@ function validateContactPayload(req, res, next) {
     });
   }
 
-  if (name.length > 100) {
-    return res.status(400).json({ error: "Името е твърде дълго." });
-  }
-
-  if (email.length > 320) {
-    return res.status(400).json({ error: "Имейлът е твърде дълъг." });
-  }
-
-  if (phone.length > 50) {
-    return res.status(400).json({ error: "Телефонният номер е твърде дълъг." });
-  }
-
-  if (message.length > 2000) {
+  if (message.length > 2000)
     return res.status(400).json({ error: "Съобщението е твърде дълго." });
-  }
 
   const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-  if (!emailRegex.test(email)) {
+  if (!emailRegex.test(email))
     return res.status(400).json({ error: "Невалиден имейл адрес." });
-  }
 
   req.contact = { name, email, phone, message };
   next();
 }
 
-// Transporter data
+// -------------- NODEMAILER ----------------
 const transporter = nodemailer.createTransport({
   service: "Gmail",
   host: "smtp.gmail.com",
@@ -79,8 +96,25 @@ const transporter = nodemailer.createTransport({
   },
 });
 
-// Route
-app.post("/", validateContactPayload, async (req, res) => {
+// Debug SMTP
+transporter.verify((err, success) => {
+  console.log("SMTP status:", err || success);
+});
+
+// ----------- HANDLE TIMEOUTS / KILL -----------------
+const EMAIL_SEND_TIMEOUT = 8000; // 8 seconds
+
+async function sendEmailWithTimeout(mailOptions) {
+  return Promise.race([
+    transporter.sendMail(mailOptions),
+    new Promise((_, reject) =>
+      setTimeout(() => reject(new Error("EMAIL_TIMEOUT")), EMAIL_SEND_TIMEOUT)
+    ),
+  ]);
+}
+
+// -------------- ROUTE ---------------------
+app.post("/", emailLimiter, validateContact, async (req, res) => {
   try {
     const { name, email, phone, message } = req.contact;
 
@@ -98,13 +132,28 @@ app.post("/", validateContactPayload, async (req, res) => {
       ].join("\n"),
     };
 
-    await transporter.sendMail(mailOptions);
+    log("Sending email from:", email, "IP:", req.ip);
+
+    await sendEmailWithTimeout(mailOptions);
+
+    log("Email SENT successfully:", { name, email });
+
     return res.status(200).json({ message: "Sent" });
   } catch (error) {
     console.error("Error sending email:", error);
+
+    if (error.message === "EMAIL_TIMEOUT") {
+      return res
+        .status(504)
+        .json({ error: "Имейлът се забави твърде дълго и беше прекратен." });
+    }
+
     return res
       .status(500)
       .json({ error: "Възникна проблем при изпращането на съобщението." });
   }
 });
 
+app.listen(PORT, "0.0.0.0", () =>
+  console.log(`Server is listening on port ${PORT}`)
+);

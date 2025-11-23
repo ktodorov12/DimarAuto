@@ -2,66 +2,77 @@ import createNotification from "../util/createNotification.js";
 
 const body = document.querySelector("body");
 const form = document.getElementById("contacts-form");
-const submitButton = form.querySelector('button[type="submit"]');
 
-const overlay = document.createElement("div");
-const loader = document.createElement("div");
-
-export default function formSubmit(e) {
-  if (!form) {
-    return;
-  }
-
+export default function formSubmit() {
+  if (!form) return;
   form.addEventListener("submit", onSubmit);
 }
 
 async function onSubmit(e) {
   e.preventDefault();
 
-  const data = Object.fromEntries(
-    ["name", "email", "phone", "message"].map((id) => [
-      id,
-      document.getElementById(id)?.value.trim(),
-    ])
-  );
-  const gdpr = document.getElementById("gdpr").checked;
-  const check = Object.values(data).some((v) => !v);
+  const submitButton = form.querySelector('button[type="submit"]');
+
+  const data = {
+    name: document.getElementById("name")?.value.trim(),
+    email: document.getElementById("email")?.value.trim(),
+    phone: document.getElementById("phone")?.value.trim(),
+    message: document.getElementById("message")?.value.trim(),
+  };
+
+  const gdprAccepted = document.getElementById("gdpr").checked;
+
+  // ---- Client validation ----
+  if (!Object.values(data).every((v) => v)) {
+    return createNotification("fail", "Моля, попълнете всички полета!");
+  }
+  if (!gdprAccepted) {
+    return createNotification("fail", "Моля, приемете условията за поверителност!");
+  }
+
+  // ---- Disable + show loader ----
+  submitButton.disabled = true;
+
+  const overlay = document.createElement("div");
+  overlay.classList.add("overlay");
+
+  const loader = document.createElement("div");
+  loader.classList.add("spinner");
+
+  overlay.appendChild(loader);
+  body.appendChild(overlay);
+
+  // ---- Kill pending requests after timeout ----
+  const controller = new AbortController();
+  const timeout = setTimeout(() => controller.abort(), 8000);
 
   try {
-    if (check) {
-      throw new Error("Моля, попълнете всички полета!");
-    }
-
-    if (!gdpr) {
-      throw new Error("Моля, приемете условията за поверителност!");
-    }
-
-    form.removeEventListener("submit", onSubmit);
-    submitButton.disabled = true;
-
-    overlay.classList.add("overlay");
-    loader.classList.add("spinner");
-    overlay.appendChild(loader);
-    body.appendChild(overlay);
-
     const response = await fetch("https://web-vwy0.onrender.com", {
       method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
+      headers: { "Content-Type": "application/json" },
+      signal: controller.signal,
       body: JSON.stringify(data),
     });
 
     if (!response.ok) {
-      throw new Error("failed to send");
+      throw new Error(`Server returned ${response.status}`);
     }
 
     createNotification("success");
-  } catch (error) {
-    createNotification("fail", "Възникна неочаквана грешка! Моля, опитайте отново.");
+  } catch (err) {
+    console.error("Contact form error:", err);
+    if (err.name === "AbortError") {
+      createNotification("fail", "Времето за изпращане изтече. Моля, опитайте отново.");
+    } else {
+      createNotification("fail", "Възникна грешка! Моля, опитайте отново.");
+    }
   } finally {
-    form.addEventListener("submit", onSubmit);
+    clearTimeout(timeout);
     submitButton.disabled = false;
-    body.removeChild(overlay);
+
+    // Safe overlay removal
+    if (body.contains(overlay)) {
+      body.removeChild(overlay);
+    }
   }
 }
