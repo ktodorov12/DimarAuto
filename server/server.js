@@ -93,7 +93,7 @@ function validateContact(req, res, next) {
 // --------------- SEND EMAIL (RESEND) -------------
 async function sendEmail({ name, email, phone, message }) {
   return resend.emails.send({
-    from: email,
+    from: "no-reply@dimarauto.com",
     to: process.env.USER, // Gmail inbox
     subject: `Ди-Мар Ауто - съобщение от ${name}`,
     text: `
