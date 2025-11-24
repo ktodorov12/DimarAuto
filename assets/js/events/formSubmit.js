@@ -13,11 +13,16 @@ async function onSubmit(e) {
 
   const submitButton = form.querySelector('button[type="submit"]');
 
+  const name = document.getElementById("name");
+  const email = document.getElementById("email");
+  const phone = document.getElementById("phone");
+  const message = document.getElementById("message");
+
   const data = {
-    name: document.getElementById("name")?.value.trim(),
-    email: document.getElementById("email")?.value.trim(),
-    phone: document.getElementById("phone")?.value.trim(),
-    message: document.getElementById("message")?.value.trim(),
+    name: name.value.trim(),
+    email: email.value.trim(),
+    phone: phone.value.trim(),
+    message: message.value.trim(),
   };
 
   const gdprAccepted = document.getElementById("gdpr").checked;
@@ -59,6 +64,7 @@ async function onSubmit(e) {
     }
 
     createNotification("success");
+    form.reset();
   } catch (err) {
     console.error("Contact form error:", err);
     if (err.name === "AbortError") {
