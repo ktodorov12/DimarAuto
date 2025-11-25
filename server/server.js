@@ -49,13 +49,14 @@ function buildRawMessage({ from, to, replyTo, subject, text }) {
     .filter(Boolean)
     .join("\r\n");
 
-  return Buffer.from(message)
+  return Buffer.from(message, "utf8")
     .toString("base64")
     .replace(/\+/g, "-")
     .replace(/\//g, "_")
     .replace(/=+$/, "");
 }
 
+// ---------- Gmail Send Function ----------
 async function sendGmail({ name, email, phone, message }) {
   const fromAddress = `${encodeHeader("Ди-Мар Ауто Сайт")} <${process.env.GMAIL_USER}>`;
   const toAddress = process.env.GMAIL_USER;
@@ -68,7 +69,7 @@ async function sendGmail({ name, email, phone, message }) {
     "",
     "Съобщение:",
     message,
-  ].join("\n");
+  ].join("\r\n");
 
   const raw = buildRawMessage({
     from: fromAddress,
@@ -94,7 +95,7 @@ app.use(
 );
 app.options("*", cors());
 
-// ---------- Body parsing ----------
+// ---------- Parsing ----------
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
