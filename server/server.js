@@ -18,6 +18,11 @@ function log(...args) {
   console.log(`[${new Date().toISOString()}]`, ...args);
 }
 
+// ---------- UTF-8 Email Header Encoder ----------
+function encodeHeader(str) {
+  return `=?UTF-8?B?${Buffer.from(str, "utf8").toString("base64")}?=`;
+}
+
 // ---------- Gmail OAuth2 setup ----------
 const oAuth2Client = new google.auth.OAuth2(
   process.env.GMAIL_CLIENT_ID,
@@ -30,14 +35,13 @@ oAuth2Client.setCredentials({
 
 const gmail = google.gmail({ version: "v1", auth: oAuth2Client });
 
-// helper to build raw RFC822 email
+// ---------- RFC822 Email Builder ----------
 function buildRawMessage({ from, to, replyTo, subject, text }) {
-  const encodedSubject = Buffer.from(subject).toString("base64");
   const message = [
     `From: ${from}`,
     `To: ${to}`,
     replyTo ? `Reply-To: ${replyTo}` : "",
-    `Subject: =?UTF-8?B?${encodedSubject}?=`,
+    `Subject: ${encodeHeader(subject)}`,
     'Content-Type: text/plain; charset="UTF-8"',
     "",
     text,
@@ -53,9 +57,10 @@ function buildRawMessage({ from, to, replyTo, subject, text }) {
 }
 
 async function sendGmail({ name, email, phone, message }) {
-  const fromAddress = `"Ди-Мар Ауто Сайт" <${process.env.GMAIL_USER}>`;
+  const fromAddress = `${encodeHeader("Ди-Мар Ауто Сайт")} <${process.env.GMAIL_USER}>`;
   const toAddress = process.env.GMAIL_USER;
   const subject = `Ди-Мар Ауто - съобщение от ${name}`;
+
   const text = [
     `Име: ${name}`,
     `Имейл: ${email}`,
@@ -68,7 +73,7 @@ async function sendGmail({ name, email, phone, message }) {
   const raw = buildRawMessage({
     from: fromAddress,
     to: toAddress,
-    replyTo: email, // so you can reply directly to the user
+    replyTo: email,
     subject,
     text,
   });
@@ -101,7 +106,7 @@ app.use((req, res, next) => {
 
 // ---------- Rate limiting ----------
 const emailLimiter = rateLimit({
-  windowMs: 30 * 60 * 1000, // 30 minutes
+  windowMs: 30 * 60 * 1000,
   max: 5,
   message: {
     error: "Too many emails sent, please try again after 30 minutes.",
@@ -114,12 +119,7 @@ const emailLimiter = rateLimit({
     return `${ip}-${email}`;
   },
   handler: (req, res) => {
-    log(
-      "Rate limit triggered for IP:",
-      req.ip,
-      "Email:",
-      req.body?.email || "none"
-    );
+    log("Rate limit triggered for IP:", req.ip, "Email:", req.body?.email || "none");
     res.status(429).json({
       error: "Too many emails sent, please try again after 30 minutes.",
     });
