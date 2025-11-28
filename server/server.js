@@ -37,25 +37,27 @@ const gmail = google.gmail({ version: "v1", auth: oAuth2Client });
 
 // ---------- RFC822 Email Builder ----------
 function buildRawMessage({ from, to, replyTo, subject, text }) {
-  const message = [
+  const lines = [
     `From: ${from}`,
     `To: ${to}`,
     replyTo ? `Reply-To: ${replyTo}` : "",
     `Subject: ${encodeHeader(subject)}`,
+    "MIME-Version: 1.0",
     'Content-Type: text/plain; charset="UTF-8"',
+    "Content-Transfer-Encoding: 8bit",
     "",
     text,
-  ]
-    .filter(Boolean)
-    .join("\r\n");
+    "",
+  ];
 
-  return Buffer.from(message, "utf8")
+  const email = lines.filter(Boolean).join("\r\n");
+
+  return Buffer.from(email, "utf8")
     .toString("base64")
     .replace(/\+/g, "-")
     .replace(/\//g, "_")
     .replace(/=+$/, "");
 }
-
 // ---------- Gmail Send Function ----------
 async function sendGmail({ name, email, phone, message }) {
   const fromAddress = `${encodeHeader("Ди-Мар Ауто Сайт")} <${process.env.GMAIL_USER}>`;
