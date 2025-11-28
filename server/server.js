@@ -37,20 +37,19 @@ const gmail = google.gmail({ version: "v1", auth: oAuth2Client });
 
 // ---------- RFC822 Email Builder ----------
 function buildRawMessage({ from, to, replyTo, subject, text }) {
-  const lines = [
+  const headers = [
     `From: ${from}`,
     `To: ${to}`,
-    replyTo ? `Reply-To: ${replyTo}` : "",
+    replyTo ? `Reply-To: ${replyTo}` : null,
     `Subject: ${encodeHeader(subject)}`,
     "MIME-Version: 1.0",
     'Content-Type: text/plain; charset="UTF-8"',
     "Content-Transfer-Encoding: 8bit",
-    "",
-    text,
-    "",
   ];
 
-  const email = lines.filter(Boolean).join("\r\n");
+  const headerStr = headers.filter(Boolean).join("\r\n");
+
+  const email = `${headerStr}\r\n\r\n${text}`;
 
   return Buffer.from(email, "utf8")
     .toString("base64")
@@ -68,7 +67,6 @@ async function sendGmail({ name, email, phone, message }) {
     `Име: ${name}`,
     `Имейл: ${email}`,
     `Телефон: ${phone || "няма посочен"}`,
-    "",
     "Съобщение:",
     message,
   ].join("\r\n");
